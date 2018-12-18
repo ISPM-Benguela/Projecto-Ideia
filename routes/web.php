@@ -21,7 +21,7 @@ Route::get('apoiar', 'HomeController@apoiar')->name('apoiar');
 
 Route::get('contactos', 'HomeController@contactos')->name('contactos');
 
-Route::get('blog', 'HomeController@contactos')->name('blog');
+Route::get('blog', 'HomeController@blog')->name('blog');
 
 Auth::routes();
 

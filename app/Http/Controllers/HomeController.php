@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $params = [
-            'actividades' => '',
+            'titulo' => 'Inicio',
         ];
         return view('paginas.index')->with($params);
     }
@@ -25,21 +25,30 @@ class HomeController extends Controller
     }
     public function sobre()
     {
-        return view('paginas.sobre');
+        $params = [
+            'titulo' => 'Sobre nos',
+        ];
+        return view('paginas.sobre')->with($params);
     }
     public function sermembro()
     {
-        return view('paginas.sermembro');
+        $params = [
+            'titulo' => 'Quero ser membro',
+        ];
+        return view('paginas.sermembro')->with($params);
     }
     public function apoiar()
     {
-        return view('paginas.apoiar');
+        $params = [
+            'titulo' => 'Apoiar a organizacao',
+        ];
+        return view('paginas.apoiar')->with($params);
     }
     public function blog()
     {
         $params = [
             //'artigos' => Artigo::paginate(3),
-            'categorias' => Categoria::get(),
+            'titulo' => 'Blog',
         ];
 
         return view('blog.index')->with($params);
