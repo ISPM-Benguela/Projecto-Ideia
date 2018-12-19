@@ -77,7 +77,7 @@ class UsuarioController extends Controller
         }        
     //Redirect to the users.index view and display message
         return redirect()->route('usuarios.index')
-            ->with('sucess',
+            ->with('success',
              'Membro cadastrado com sucesso!.');
     }
 
