@@ -5,8 +5,19 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Auth;
+//Importing laravel-permission models
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+use Session;
+
 class NivelController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth']);//isAdmin middleware lets only users with a //specific permission permission to access these resources
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,11 @@ class NivelController extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Nivel',
+            'niveis' => Role::all(),
+        ];
+        return view('membro.nivel.index')->with($params);
     }
 
     /**

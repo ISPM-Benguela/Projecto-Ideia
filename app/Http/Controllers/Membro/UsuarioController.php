@@ -44,6 +44,7 @@ class UsuarioController extends Controller
     {
         $params = [
             'titulo' => 'Cadastrar membro',
+            'roles' => Role::all(),
         ];
         return view('membro.usuarios.create')->with($params);
     }
