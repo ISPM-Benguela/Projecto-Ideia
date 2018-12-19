@@ -18,11 +18,11 @@
                         
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
+                                            <th>Name</th>
                                             <th>Email</th>
-                                            <th>Data/Hora Adicionado</th>
-                                            <th>Nivel do usuario</th>
-                                            <th>Operacao</th>
+                                            <th>Date/Time Added</th>
+                                            <th>User Roles</th>
+                                            <th>Operations</th>
                                         </tr>
                                     </thead>
                         
@@ -35,8 +35,11 @@
                                             <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
                                             <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                             <td>
-                                            <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-info btn-xs"><i class="fa fa-edit" title="Delete"></i> Editar</a>
-                                            <a href="{{ route('usuarios.show', $user->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                            <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                        
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['usuarios.destroy', $user->id] ]) !!}
+                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
                         
                                             </td>
                                         </tr>
@@ -46,7 +49,7 @@
                                 </table>
                             </div>
                         
-                            <a href="{{ route('usuarios.create') }}" class="btn btn-success">Add User</a>
+                            <a href="{{ route('usuarios.create') }}" class="btn btn-success">Cadastrar membro</a>
                 </div>
             </div>
         </div>
