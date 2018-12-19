@@ -13,7 +13,7 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form method="post" action="{{ route('area.store') }}" data-parsley-validate class="form-horizontal form-label-left">
+                    <form method="post" action="{{ route('area.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
 
                         <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="brand">Titulo <span class="required">*</span>
@@ -30,7 +30,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="brand">Imagem <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" value="{{ Request::old('imagem') ?: '' }}" id="imagem" name="imagem" class="form-control col-md-7 col-xs-12">
+                                <input type="file" value="{{ Request::old('imagem') ?: '' }}" id="imagem" name="imagem" class="form-control col-md-7 col-xs-12">
                                 @if ($errors->has('imagem'))
                                 <span class="help-block">{{ $errors->first('imagem') }}</span>
                                 @endif

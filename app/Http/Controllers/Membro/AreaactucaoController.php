@@ -55,11 +55,11 @@ class AreaactucaoController extends Controller
 
             $nome = uniqid(date('HisYmd'));
 
-            $extensao = $request->image->extension();
+            $extensao = $request->file('imagem')->extension();
 
             $nameFile = "{$nome}.{$extensao}";
 
-            $upload = $request->image->storeAs('AreaActuacao', $nameFile);
+            $upload = $request->file('imagem')->storeAs('AreaActuacao', $nameFile);
 
             if(!$upload )
             {
