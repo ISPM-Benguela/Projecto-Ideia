@@ -31,6 +31,8 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('principal', 'HomeController');
 
          Route::resource('area', 'AreaactucaoController');
+
+         Route::resource('artigo', 'AreaactucaoController');
         
         });
 });
