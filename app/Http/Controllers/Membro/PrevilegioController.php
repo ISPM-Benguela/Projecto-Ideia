@@ -29,9 +29,10 @@ class PrevilegioController extends Controller
     {
         $params = [
             'titulo' => 'Previlegios',
-            'previlegios' => Permission::all(),
+            'permissions' => Permission::all(),
         ];
-        return view('membro.previlegios.index')->with($params);
+        //return view('membro.previlegios.index')->with($params);
+        return view('membro.previlegios.inicio')->with($params);
     }
 
     /**
@@ -41,7 +42,11 @@ class PrevilegioController extends Controller
      */
     public function create()
     {
-        //
+        $params = [
+            'titulo' => 'Previlegios',
+            'roles' => Role::get(),
+        ];
+        return view('membro.previlegios.create')->with($params);
     }
 
     /**
@@ -52,7 +57,28 @@ class PrevilegioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|max:40',
+        ]);
+
+        $name = $request['name'];
+        $permission = new Permission();
+        $permission->name = $name;
+
+        $roles = $request['roles'];
+
+        $permission->save();
+
+        if (!empty($request['roles'])) { //If one or more role is selected
+            foreach ($roles as $role) {
+                $r = Role::where('id', '=', $role)->firstOrFail(); //Match input role to db record
+
+                $permission = Permission::where('name', '=', $name)->first(); //Match input //permission to db record
+                $r->givePermissionTo($permission);
+            }
+        }
+
+        return "cadastrado";
     }
 
     /**
@@ -63,7 +89,7 @@ class PrevilegioController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect('previlegios');
     }
 
     /**
@@ -73,8 +99,14 @@ class PrevilegioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        
+        $params = [
+            'permission' => Permission::findOrFail($id),
+        ];
+        
+
+        return view('membro.previlegio.edit')->with($params);
     }
 
     /**
@@ -86,7 +118,17 @@ class PrevilegioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+        $this->validate($request, [
+            'name'=>'required|max:40',
+        ]);
+        $input = $request->all();
+        $permission->fill($input)->save();
+
+        return redirect()->route('previlegios.index')
+            ->with('success',
+             'Previlegio'. $permission->name.' actualizado!');
+
     }
 
     /**
@@ -97,6 +139,20 @@ class PrevilegioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        //Make it impossible to delete this specific permission    
+        if ($permission->name == "Administrador") {
+                return redirect()->route('membro.previlegios.index')
+                ->with('c',
+                 'nao e possivel eliminar este previlegio!');
+            }
+    
+            $permission->delete();
+    
+            return redirect()->route('membro.previlegios.index')
+                ->with('success',
+                 'Previlegios eliminado!');
+    
     }
 }

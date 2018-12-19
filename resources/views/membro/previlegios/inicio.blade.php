@@ -1,16 +1,15 @@
 @extends('layouts.membro')
-@section('principal')
 
+@section('principal')
 <div class="">
     <div class="clearfix"></div>
+
     <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                        <h1><i class="fa fa-unlock"></i> Gestao de previlegios<a href="{{ route('nivel.index') }}" class="btn btn-default pull-right"><i class="fa fa-unlock"></i> Nivel</a>
-                            <a href="{{ route('previlegio.index') }}" class="btn btn-default pull-right"><i class="fa fa-key"></i> Previlegio</a></h1>
-                            <hr>
-                   <div class="clearfix"></div>
+                    <h2>Confirm Delete Record <a href="" class="btn btn-info btn-xs"><i class="fa fa-chevron-left"></i> Back </a></h2>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                         <div class="table-responsive">
@@ -27,9 +26,9 @@
                                         <tr>
                                             <td>{{ $permission->name }}</td> 
                                             <td>
-                                            <a href="" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                                            <a href="{{ URL::to('/membro/previlegio/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
                         
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['', $permission->id] ]) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['previlegio.destroy', $permission->id] ]) !!}
                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                             {!! Form::close() !!}
                         
@@ -39,8 +38,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        
-                            <a href="{{ route('previlegio.create') }}" class="btn btn-success">cadastrar previlegio</a>
                 </div>
             </div>
         </div>
