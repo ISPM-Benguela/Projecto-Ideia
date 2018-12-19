@@ -89,7 +89,7 @@
 						<!-- block1 -->
 						<div  class="block-curva block1 hov-img-zoom pos-relative m-b-30">
 
-							<img src="/storage/{{$area->imagem }}" class="img-responsive" alt="IMG-BENNER">
+							<img src="/storage/{{$area->imagem }}" class="img-responsive" alt="{{$area->title}}">
 
 						</div>
 						<div class="block-desc">
