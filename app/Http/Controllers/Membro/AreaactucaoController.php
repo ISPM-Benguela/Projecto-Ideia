@@ -14,7 +14,11 @@ class AreaactucaoController extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Area de actuacao',
+        ];
+        return view('membro.area.index')->with($params);
+
     }
 
     /**

@@ -75,7 +75,7 @@
                                 <li><a href="{{route('inicio')}}"><i class="fa fa-eye"></i> Visuaizar o Site </a></li>
                                 <li><a href=""><i class="fa fa-rss"></i> Sugestão </a></li>
                                 <li><a href=""><i class="fa fa-file-text"></i> Documentos </a></li>
-                                <li><a href=""><i class="fa fa-calendar"></i> Area de actuacao </a></li>
+                                <li><a href="{{route('area.index')}}"><i class="fa fa-calendar"></i> Area de actuacao </a></li>
                                 <li><a href=""><i class="fa fa-calendar"></i> Actividades </a></li>
                                 <li><a href=""><i class="fa fa-calendar"></i> Artigos </a></li>
                             </ul>

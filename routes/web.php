@@ -29,6 +29,8 @@ Route::group(["middleware" => "auth"], function(){
     Route::group(['prefix' => 'membro','namespace' => 'Membro'], function(){
 
          Route::resource('principal', 'HomeController');
+
+         Route::resource('area', 'AreaactucaoController');
         
         });
 });
