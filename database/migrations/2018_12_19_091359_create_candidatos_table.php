@@ -15,6 +15,8 @@ class CreateCandidatosTable extends Migration
     {
         Schema::create('candidatos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('no_bi');
             $table->timestamps();
         });
     }

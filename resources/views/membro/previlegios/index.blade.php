@@ -13,35 +13,7 @@
                    <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                        <div class="table-responsive">
-                                <table class="table table-bordered table-striped">
-                        
-                                    <thead>
-                                        <tr>
-                                            <th>Permissions</th>
-                                            <th>Operation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($permissions as $permission)
-                                        <tr>
-                                            <td>{{ $permission->name }}</td> 
-                                            <td>
-                                            <a href="" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
-                        
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['', $permission->id] ]) !!}
-                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                            {!! Form::close() !!}
-                        
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        
-                            <a href="{{ route('previlegio.create') }}" class="btn btn-success">cadastrar previlegio</a>
-                </div>
+                   
             </div>
         </div>
     </div>
