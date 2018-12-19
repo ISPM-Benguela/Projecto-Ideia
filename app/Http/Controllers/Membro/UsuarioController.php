@@ -5,8 +5,22 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\User;
+use Auth;
+
+//Importing laravel-permission models
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+//Enables us to output flash messaging
+use Session;
+
 class UsuarioController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth']); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +28,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Usuarios',
+            'usuarios' => User::all(),
+        ];
+        return view('membro.usuarios.index')->with($params);
     }
 
     /**

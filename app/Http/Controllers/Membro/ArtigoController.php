@@ -11,7 +11,7 @@ use Session;
 class ArtigoController extends Controller
 {
     public function __construct() {
-        $this->middleware(['auth', 'podentrar'])->except('index', 'show');
+        $this->middleware(['auth', 'clearance'])->except('index', 'show');
     }
 
     /**

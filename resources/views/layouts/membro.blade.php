@@ -67,7 +67,7 @@
                                 <li><a hef="{{route('principal.index')}}"><i class="fa fa-home"></i> Inicio </a></li>
                                 <li><a><i class="fa fa-edit"></i> Painel de controle <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="">Membros</a></li>
+                                        <li><a href="{{route('usuarios.index')}}">Membros</a></li>
                                         <li><a href="">Previlégios</a></li>
                                         <li><a href="">Doação</a></li>
                                     </ul>
