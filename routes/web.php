@@ -25,3 +25,11 @@ Route::get('blog', 'HomeController@blog')->name('blog');
 
 Auth::routes();
 
+Route::group(["middleware" => "auth"], function(){
+    Route::group(['prefix' => 'membro','namespace' => 'Membro'], function(){
+
+        Route::resource('principal', 'HomeController');
+        
+        });
+});
+
