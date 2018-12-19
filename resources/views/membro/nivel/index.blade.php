@@ -29,8 +29,8 @@
                         
                                             <td>{{ $user->name }}</td>
                                             <td>
-                                            <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-info btn-xs"><i class="fa fa-edit" title="Delete"></i> Editar</a>
-                                            <a href="{{ route('usuarios.show', $user->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                            <a href="{{ route('nivel.edit', $user->id) }}" class="btn btn-info btn-xs"><i class="fa fa-edit" title="Delete"></i> Editar</a>
+                                            <a href="{{ route('nivel.show', $user->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
                         
                                             </td>
                                         </tr>
