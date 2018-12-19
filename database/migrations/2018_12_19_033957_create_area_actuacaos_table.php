@@ -15,6 +15,9 @@ class CreateAreaActuacaosTable extends Migration
     {
         Schema::create('area_actuacaos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
+            $table->string('imagem')->nullable();
+            $table->text('descricao');
             $table->timestamps();
         });
     }
