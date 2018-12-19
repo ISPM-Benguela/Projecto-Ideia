@@ -40,7 +40,7 @@
                                 </table>
                             </div>
                         
-                            <a href="{{ route('nivel.create') }}" class="btn btn-success">Add User</a>
+                            <a href="{{ route('nivel.create') }}" class="btn btn-success">Cadastrara nivel</a>
                 </div>
             </div>
         </div>

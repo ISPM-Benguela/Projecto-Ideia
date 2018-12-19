@@ -7,7 +7,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                        <h1><i class="fa fa-unlock"></i> Gestao de previlegios<a href="{{ route('nivel.index') }}" class="btn btn-default pull-right"><i class="fa fa-unlock"></i> Nivel</a>
+                        <h1><i class="fa fa-unlock"></i> Gestao de previlegio<a href="{{ route('nivel.index') }}" class="btn btn-default pull-right"><i class="fa fa-unlock"></i> Nivel</a>
                             <a href="{{ route('previlegio.index') }}" class="btn btn-default pull-right"><i class="fa fa-key"></i> Previlegio</a></h1>
                             <hr>
                    <div class="clearfix"></div>
@@ -16,9 +16,12 @@
                         
                         <form method="post" action="{{ route('previlegio.store') }}" data-parsley-validate class="form-horizontal form-label-left">
                                 @csrf
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             {{ Form::label('name', 'Name') }}
                             {{ Form::text('name', '', array('class' => 'form-control')) }}
+                            @if ($errors->has('name'))
+                                <span class="help-block">{{ $errors->first('name') }}</span>
+                            @endif
                         </div><br>
                         @if(!$roles->isEmpty()) //If no roles exist yet
                             <h4>Assign Permission to Roles</h4>
@@ -30,7 +33,7 @@
                             @endforeach
                         @endif
                         <br>
-                        {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
+                        {{ Form::submit('Cadastrar previlegio', array('class' => 'btn btn-primary')) }}
                     
                         {{ Form::close() }}
                                 

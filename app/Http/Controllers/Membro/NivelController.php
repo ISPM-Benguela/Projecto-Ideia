@@ -39,7 +39,11 @@ class NivelController extends Controller
      */
     public function create()
     {
-        //
+        $params = [
+            'titulo' => 'Cadastrar nivel',
+            'permissioms' => Permission::all(),
+        ];
+        return view('membro.nivel.create')->with($params);
     }
 
     /**

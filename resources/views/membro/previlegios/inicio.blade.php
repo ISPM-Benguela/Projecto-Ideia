@@ -37,6 +37,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <a href="{{ route('previlegio.create') }}" class="btn btn-success">Cadastrar membro</a>
                             </div>
                 </div>
             </div>
