@@ -87,7 +87,22 @@ class AreaactucaoController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+
+            $params = [
+                'titulo' => 'Eliminar',
+                'area' => AreaActuacao::findOrFail($id),
+            ];
+
+            return view('membro.area.delete')->with($params);
+        }
+        catch (ModelNotFoundException $ex) 
+        {
+            if ($ex instanceof ModelNotFoundException)
+            {
+                return response()->view('errors.'.'404');
+            }
+        }
     }
 
     /**
@@ -176,6 +191,20 @@ class AreaactucaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try
+        {
+            $area = AreaActuacao::findOrFail($id);
+
+            $area->delete();
+
+            return redirect()->route('area.index')->with('success', "Eliminada area com sucesso!.");
+        }
+        catch (ModelNotFoundException $ex) 
+        {
+            if ($ex instanceof ModelNotFoundException)
+            {
+                return response()->view('errors.'.'404');
+            }
+        }
     }
 }
