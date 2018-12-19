@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\AreaActuacao;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,7 @@ class HomeController extends Controller
     {
         $params = [
             'titulo' => 'Inicio',
+            'areas' => AreaActuacao::take(3)->orderBy('created_at', 'desc')->get(),
         ];
         return view('paginas.index')->with($params);
     }

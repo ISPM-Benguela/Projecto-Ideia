@@ -84,64 +84,23 @@
 					   a sociedade (igreja, escola, família...). .</p>
                 <br /><br /><br />
 				<div class="row">
-                    
+                    @foreach($areas as $area)
 					<div  class="col-sm-8 col-md-8 col-lg-4 m-l-r-auto curva-banner">
 						<!-- block1 -->
 						<div  class="block-curva block1 hov-img-zoom pos-relative m-b-30">
 
-							<img src="images/entrega.jpeg" class="img-responsive" alt="IMG-BENNER">
+							<img src="/storage/{{$area->imagem }}" class="img-responsive" alt="IMG-BENNER">
 
 						</div>
 						<div class="block-desc">
-								<h2>A GRANDE ENTREGA</h2>
 
-								<p>é uma campanha a ser realizada quadrimestral,
-									 onde é feita a entrega de diversos bens de
-									  primeira necessidade aos Centros de Acolhimentos,
-									   Lares de Assistência Social, Instituições Hospitalares
-									    comunidades e outros.
-								</p>
+								<h2>{{$area->titulo}}</h2>
+
+								<p>{{ $area->descricao }}</p>
 
 							</div>
 					</div>
-
-					<div  class="col-sm-8 col-md-8  col-lg-4 m-l-r-auto curva-banner">
-						<!-- block1 -->
-						<div  class="block-curva block1 hov-img-zoom pos-relative m-b-30">
-
-							<img src="images/comer.jpeg" class="img-responsive" alt="IMG-BENNER">
-
-						</div>
-						<div class="block-desc">
-							<h2>COMER COM ELES</h2>
-
-							<p>Actividade semestral, tendo como foco a distribuição
-							 de refeições aos mais necessitados que fazem de seus 
-							 lares as ruas, praças e largos públicos das artérias 
-							 da cidade e não só, bem como aos trabalhadores ambulantes
-							  e de serviços de guarda..
-							</p>
-						</div>
-					</div>
-
-					<div  class="col-sm-8 col-md-8  col-lg-4 m-l-r-auto curva-banner">
-								<!-- block1 -->
-						<div  class="block-curva block1 hov-img-zoom pos-relative m-b-30">
-
-							<img src="images/jogar.jpg" class="img-responsive" alt="IMG-BENNER">
-						</div>
-						<div class="block-desc">
-								<h2>JOGAR PELA SOLIDARIEDADE</h2>
-
-								<p>Actividade lúdica a ser realizada quadrimestral
-									, que visa levar os associados ao projecto,
-									 a prática de desportos, ginástica e através
-									  destas, angariar bens de primeira necessidade
-									   para os mais necessitados.
-								</p>
-							</div>
-
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</section>
