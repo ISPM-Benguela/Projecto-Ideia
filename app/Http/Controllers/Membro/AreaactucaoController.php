@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\AreaActuacao;
 
 class AreaactucaoController extends Controller
@@ -97,7 +98,19 @@ class AreaactucaoController extends Controller
      */
     public function edit($id)
     {
-        //
+        try
+        {
+            $params = [
+                'titulo' => 'Editar ',
+                'area' => AreaActuacao::findOrFail($id),
+            ];
+
+            return view('membro.area.edit')->with($params);
+        }
+        catch(ModelNotFoundException $ex)
+        {
+
+        }
     }
 
     /**
@@ -109,7 +122,50 @@ class AreaactucaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nameFile = null;
+
+        try
+        {
+            $this->validate($request, [
+                'titulo' => 'required|unique:area_actuacaos,titulo,'.$id,
+                'descricao' => 'required',
+            ]);
+
+            $area = AreaActuacao::findOrFail($id);
+
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+                $nome = uniqid(date('HisYmd'));
+    
+                $extensao = $request->file('imagem')->extension();
+    
+                $nameFile = "{$nome}.{$extensao}";
+    
+                $upload = $request->file('imagem')->storeAs('AreaActuacao', $nameFile);
+    
+                if(!$upload )
+                {
+                    return redirect()
+                        ->route('area.create')
+                        ->with('error','Falha ao fazer upload');
+                }
+            }
+
+            $area->titulo = $request->input('titulo');
+            $area->imagem = $nameFile;
+            $area->descricao = $request->input('descricao');
+
+            $area->save();
+
+            return redirect()->route('area.index')->with('success', "A area (<strong>$area->titulo</strong>) foi actualizada.");
+        }
+        catch (ModelNotFoundException $ex) 
+        {
+            if ($ex instanceof ModelNotFoundException)
+            {
+                return response()->view('errors.'.'404');
+            }
+        }
     }
 
     /**

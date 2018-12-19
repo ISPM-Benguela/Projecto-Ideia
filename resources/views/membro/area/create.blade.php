@@ -19,7 +19,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="brand">Titulo <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" value="{{ Request::old('titulo') ?: '' }}" id="titulo" name="titulo" class="form-control col-md-7 col-xs-12">
+                                <textarea type="text" value="{{ Request::old('titulo') ?: '' }}" id="titulo" name="titulo" class="form-control col-md-7 col-xs-12"></textarea>
                                 @if ($errors->has('titulo'))
                                 <span class="help-block">{{ $errors->first('titulo') }}</span>
                                 @endif
