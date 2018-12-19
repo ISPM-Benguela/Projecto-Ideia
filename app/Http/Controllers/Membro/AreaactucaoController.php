@@ -17,6 +17,7 @@ class AreaactucaoController extends Controller
     {
         $params = [
             'titulo' => 'Area de actuacao',
+            'areas' => AreaActuacao::all(),
         ];
         return view('membro.area.index')->with($params);
 
