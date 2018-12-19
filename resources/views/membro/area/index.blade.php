@@ -4,7 +4,7 @@
 <div class="col-lg-10 col-lg-offset-1">
     <h1><i class="fa fa-users"></i> Gestão da area de actuacao</h1>
     <hr>
-    <a href="" class="btn btn-primary" style="padding-bottom: 5px;">Publicar novo artigo <i class="fa fa-plus"></i></a>
+    <a href="{{route('area.create')}}" class="btn btn-primary" style="padding-bottom: 5px;">Cadastrar area de actuacao <i class="fa fa-plus"></i></a>
 
     <div class="row">
       <div class="col-sm-4 col-md-4 col-xs-4">
@@ -16,7 +16,7 @@
         </div>
     </div>     
    </div><!-- ./ row -->
-  
+  s
 
 </div>
 @stop
