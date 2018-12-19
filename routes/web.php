@@ -32,7 +32,7 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('area', 'AreaactucaoController');
 
-         Route::resource('artigo', 'AreaactucaoController');
+         Route::resource('artigo', 'ArtigoController');
         
         });
 });

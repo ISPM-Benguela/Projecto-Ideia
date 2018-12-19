@@ -14,7 +14,10 @@ class ArtigoController extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Artigos',
+        ];
+        return view('membro.artigo.index')->with($params);
     }
 
     /**
