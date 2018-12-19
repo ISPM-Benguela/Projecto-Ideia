@@ -102,11 +102,12 @@ class PrevilegioController extends Controller
     {   
         
         $params = [
+            'titulo' => 'Editar previlegio',
             'permission' => Permission::findOrFail($id),
         ];
         
 
-        return view('membro.previlegio.edit')->with($params);
+        return view('membro.previlegios.edit')->with($params);
     }
 
     /**
@@ -125,9 +126,10 @@ class PrevilegioController extends Controller
         $input = $request->all();
         $permission->fill($input)->save();
 
-        return redirect()->route('previlegios.index')
+        return redirect()->route('previlegio.index')
             ->with('success',
-             'Previlegio'. $permission->name.' actualizado!');
+             'previlegio'. $permission->name.' actualizado!');
+
 
     }
 
@@ -143,14 +145,14 @@ class PrevilegioController extends Controller
 
         //Make it impossible to delete this specific permission    
         if ($permission->name == "Administrador") {
-                return redirect()->route('membro.previlegios.index')
-                ->with('c',
+                return redirect()->route('previlegio.index')
+                ->with('success',
                  'nao e possivel eliminar este previlegio!');
             }
     
             $permission->delete();
     
-            return redirect()->route('membro.previlegios.index')
+            return redirect()->route('previlegio.index')
                 ->with('success',
                  'Previlegios eliminado!');
     
