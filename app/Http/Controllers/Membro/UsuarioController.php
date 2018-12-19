@@ -42,7 +42,10 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        $params = [
+            'titulo' => 'Cadastrar membro',
+        ];
+        return view('membro.usuarios.create')->with($params);
     }
 
     /**
