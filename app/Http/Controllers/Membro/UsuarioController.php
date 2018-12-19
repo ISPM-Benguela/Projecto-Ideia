@@ -57,7 +57,28 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validate name, email and password fields
+        $this->validate($request, [
+            'name'=>'required|max:120',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6|confirmed'
+        ]);
+
+        $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
+
+        $roles = $request['roles']; //Retrieving the roles field
+    //Checking if a role was selected
+        if (isset($roles)) {
+
+            foreach ($roles as $role) {
+            $role_r = Role::where('id', '=', $role)->firstOrFail();            
+            $user->assignRole($role_r); //Assigning role to user
+            }
+        }        
+    //Redirect to the users.index view and display message
+        return redirect()->route('usuarios.index')
+            ->with('sucess',
+             'Membro cadastrado com sucesso!.');
     }
 
     /**
@@ -68,7 +89,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect('usuarios'); 
     }
 
     /**
@@ -79,7 +100,12 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $params = [
+            'user' =>  User::findOrFail($id),
+            'roles' => Role::get(),
+        ];
+
+        return view('membro.usuaios.edit')->with($params); //pass user and roles data to view
     }
 
     /**

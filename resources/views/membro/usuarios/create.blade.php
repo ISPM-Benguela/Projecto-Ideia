@@ -49,7 +49,7 @@
                 
                     </div>
                 
-                    {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
+                    {{ Form::submit('Cadastrar membro', array('class' => 'btn btn-primary')) }}
                 
                     {{ Form::close() }}
                 
