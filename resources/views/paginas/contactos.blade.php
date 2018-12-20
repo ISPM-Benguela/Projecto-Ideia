@@ -21,7 +21,8 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form action="" method="post" class="leave-comment">
+					<form class="leave-comment" action="{{route('contacto.index')}}" method="post" >
+						
 						<h4 class="m-text26 p-b-36 p-t-15">
 							Envia - nos uma mensagem
 						</h4>
@@ -42,6 +43,7 @@
 
 						<div class="w-size25">
 							<!-- Button -->
+							 <input type="hidden" name="_token" value="{{ Session::token() }}">
 							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
 								Enviar
 							</button>

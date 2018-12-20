@@ -39,6 +39,8 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('nivel', 'NivelController');
 
          Route::resource('previlegio', 'PrevilegioController');
+
+         Route::resource('contacto', 'ContactoController');
         
         });
 });
