@@ -53,6 +53,6 @@ class HomeController extends Controller
             'titulo' => 'Blog',
         ];
 
-        return view('blog.indexs')->with($params);
+        return view('blog.index')->with($params);
     }
 }
