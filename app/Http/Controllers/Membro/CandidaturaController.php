@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Candidato;
+
 class CandidaturaController extends Controller
 {
     /**
@@ -35,7 +37,19 @@ class CandidaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nome' => 'required',
+            'no_bi' => 'required',
+            'mensagem' => 'mensagem',
+        ]);
+
+        $candidato = Candidato::create([
+            'nome' => $request->input('nome'),
+            'no_bi' => $request->input('no_bi'),
+            'mensagem' => $request->input('mensagem'),
+        ]);
+
+        return redirect()->route('sermembro');
     }
 
     /**

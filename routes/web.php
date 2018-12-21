@@ -41,6 +41,8 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('previlegio', 'PrevilegioController');
 
          Route::resource('contacto', 'ContactoController');
+
+         Route::resource('candidato', 'CandidatoController');
         
         });
 });
