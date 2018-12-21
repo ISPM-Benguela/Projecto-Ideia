@@ -36,27 +36,43 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment">
+					<form class="leave-comment" action="{{route('contacto.store')}}" method="post" >
+						
 						<h4 class="m-text26 p-b-36 p-t-15">
-							Envia - nos a tua doação
+							Preencher o formulario de doacao
 						</h4>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Nome completo">
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('nome') ? ' has-error' : '' }} ">
+							<input value="" class="sizefull s-text7 p-l-22 p-r-22"  value="{{ Request::old('nome') ?: '' }}" type="text" name="nome" placeholder="Nome completo">
+							
+                               
+						</div>
+						 @if ($errors->has('nome'))
+                                <span class="help-block">{{ $errors->first('nome') }}</span>
+                                @endif
+
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('talao') ? ' has-error' : '' }}">
+							<input class="sizefull s-text7 p-l-22 p-r-22" value="{{ Request::old('talao') ?: '' }}"  type="talao" >
+							
+						</div>
+						@if ($errors->has('talao'))
+                                <span class="help-block">{{ $errors->first('talao') }}</span>
+                                @endif
+
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('telefone') ? ' has-error' : '' }}">
+							<input class="sizefull s-text7 p-l-22 p-r-22" value="{{ Request::old('valor') ?: '' }}"   type="text" name="valor" placeholder="Valor ">
+							
 						</div>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Telefone">
-						</div>
+						@if ($errors->has('valor'))
+                            	 <span class="help-block">{{ $errors->first('valor') }}</span>
+                            @endif
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email ">
-						</div>
-						<div class="bo4 of-hidden size15 m-b-20">
-								<input class="sizefull s-text7 p-l-22 p-r-22" type="file" >
-						</div>
-
-
+						<div class="w-size25">
+							<!-- Button -->
+							 <input type="hidden" name="_token" value="{{ Session::token() }}">
+							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+								Enviar
 							</button>
 						</div>
 					</form>
