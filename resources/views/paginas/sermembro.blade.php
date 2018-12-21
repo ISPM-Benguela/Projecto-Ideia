@@ -36,27 +36,29 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment">
+					<form class="leave-comment" action="{{route('contacto.store')}}" method="post" >
+						
 						<h4 class="m-text26 p-b-36 p-t-15">
-							Preencher o formulario
+							preencha o formulario
 						</h4>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Nome completo">
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('nome') ? ' has-error' : '' }} ">
+							<input value="" class="sizefull s-text7 p-l-22 p-r-22"  value="{{ Request::old('nome') ?: '' }}" type="text" name="nome" placeholder="Nome completo">
+							
+                               
 						</div>
+						 @if ($errors->has('nome'))
+                            <span class="help-block">{{ $errors->first('nome') }}</span>
+                         @endif
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Telefone">
-						</div>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email ">
-						</div>
-
-						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="escreve aqui a mensagem"></textarea>
-
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="mensagem" placeholder="de - nos uma razao..."></textarea>
+						@if ($errors->has('mensagem'))
+                            	 <span class="help-block">{{ $errors->first('mensagem') }}</span>
+                            @endif
 						<div class="w-size25">
 							<!-- Button -->
+							 <input type="hidden" name="_token" value="{{ Session::token() }}">
 							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
 								Enviar
 							</button>
