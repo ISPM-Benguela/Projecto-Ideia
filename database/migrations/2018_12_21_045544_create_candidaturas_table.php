@@ -15,6 +15,10 @@ class CreateCandidaturasTable extends Migration
     {
         Schema::create('candidaturas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('no_bi');
+            $table->text('mensagem');
+            $table->boolean('estado')->default(false);
             $table->timestamps();
         });
     }
