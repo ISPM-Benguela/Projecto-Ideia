@@ -15,6 +15,9 @@ class CreateDoacaoNaoActivosTable extends Migration
     {
         Schema::create('doacao_nao_activos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('talao');
+            $table->string('valor');
             $table->timestamps();
         });
     }
