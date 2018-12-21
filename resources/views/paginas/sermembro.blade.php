@@ -50,7 +50,15 @@
 						 @if ($errors->has('nome'))
                             <span class="help-block">{{ $errors->first('nome') }}</span>
                          @endif
-
+						 
+						 <div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('no_bi') ? ' has-error' : '' }} ">
+							<input value="" class="sizefull s-text7 p-l-22 p-r-22"  value="{{ Request::old('no_bi') ?: '' }}" type="text" name="no_bi" placeholder="Numero do BI">
+							
+                               
+						</div>
+						 @if ($errors->has('no_bi'))
+                            <span class="help-block">{{ $errors->first('no_bi') }}</span>
+                         @endif
 
 						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="mensagem" placeholder="de - nos uma razao..."></textarea>
 						@if ($errors->has('mensagem'))

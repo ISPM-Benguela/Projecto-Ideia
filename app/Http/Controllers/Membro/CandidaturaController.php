@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Candidato;
+use App\Candidatura;
 
 class CandidaturaController extends Controller
 {
@@ -39,11 +39,11 @@ class CandidaturaController extends Controller
     {
         $this->validate($request, [
             'nome' => 'required',
-            'no_bi' => 'required',
-            'mensagem' => 'mensagem',
+            'no_bi' => 'required|unique:candidaturas',
+            'mensagem' => 'required',
         ]);
 
-        $candidato = Candidato::create([
+        $candidato = Candidatura::create([
             'nome' => $request->input('nome'),
             'no_bi' => $request->input('no_bi'),
             'mensagem' => $request->input('mensagem'),

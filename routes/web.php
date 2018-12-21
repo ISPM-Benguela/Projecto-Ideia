@@ -42,7 +42,7 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('contacto', 'ContactoController');
 
-         Route::resource('candidato', 'CandidatoController');
+         Route::resource('candidato', 'CandidaturaController');
         
         });
 });
