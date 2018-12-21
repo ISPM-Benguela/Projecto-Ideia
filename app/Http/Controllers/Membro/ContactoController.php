@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Contacto;
+
 class ContactoController extends Controller
 {
     /**
@@ -24,7 +26,7 @@ class ContactoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +37,21 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nome' => 'required',
+            'telefone' => 'required',
+            'email' => 'required',
+            'mensagem' => 'required',
+        ]);
+
+        $mensagem = Contacto::create([
+            'nome' => $request->input('nome'),
+            'telefone' => $request->input('telefone'),
+            'email' => $request->input('email'),
+            'mensagem' => $request->input('mensagem'),
+        ]);
+
+        return redirect()->route('contactos');
     }
 
     /**

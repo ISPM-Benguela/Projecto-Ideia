@@ -13,6 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 p-b-30">
+				
 					<div class="p-r-20 p-r-0-lg">
 						<div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1" style="margin-rigth: 20px;">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d62301.95137800274!2d13.36140660126279!3d-12.590689143452693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x1bafd10adecd1033%3A0x9f62cf882e30a616!2sBenguela!3m2!1d-12.590515799999999!2d13.416501!5e0!3m2!1spt-BR!2sao!4v1543468185759" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -21,26 +22,42 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment" action="{{route('contacto.index')}}" method="post" >
+					<form class="leave-comment" action="{{route('contacto.store')}}" method="post" >
 						
 						<h4 class="m-text26 p-b-36 p-t-15">
 							Envia - nos uma mensagem
 						</h4>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Nome completo">
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('nome') ? ' has-error' : '' }} ">
+							<input value="" class="sizefull s-text7 p-l-22 p-r-22"  value="{{ Request::old('nome') ?: '' }}" type="text" name="nome" placeholder="Nome completo">
+							
+                               
+						</div>
+						 @if ($errors->has('nome'))
+                                <span class="help-block">{{ $errors->first('nome') }}</span>
+                                @endif
+
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('telefone') ? ' has-error' : '' }}">
+							<input class="sizefull s-text7 p-l-22 p-r-22" value="{{ Request::old('telefone') ?: '' }}"  type="text" name="telefone" placeholder="Telefone">
+							
+						</div>
+						@if ($errors->has('telefone'))
+                                <span class="help-block">{{ $errors->first('telefone') }}</span>
+                                @endif
+
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('telefone') ? ' has-error' : '' }}">
+							<input class="sizefull s-text7 p-l-22 p-r-22" value="{{ Request::old('email') ?: '' }}"   type="text" name="email" placeholder="Email ">
+							
 						</div>
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Telefone">
-						</div>
+						@if ($errors->has('email'))
+                            	 <span class="help-block">{{ $errors->first('email') }}</span>
+                            @endif
 
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email ">
-						</div>
-
-						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="escreve aqui a mensagem"></textarea>
-
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="mensagem" placeholder="escreve aqui a mensagem"></textarea>
+						@if ($errors->has('mensagem'))
+                            	 <span class="help-block">{{ $errors->first('mensagem') }}</span>
+                            @endif
 						<div class="w-size25">
 							<!-- Button -->
 							 <input type="hidden" name="_token" value="{{ Session::token() }}">
