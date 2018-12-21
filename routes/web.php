@@ -43,6 +43,9 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('contacto', 'ContactoController');
 
          Route::resource('candidato', 'CandidaturaController');
+
+         Route::resource('doacaonaoactivo', 'DoacaoMembroNaoActvo');
+
         
         });
 });
