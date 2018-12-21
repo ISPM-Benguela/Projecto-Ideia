@@ -160,4 +160,5 @@ class NivelController extends Controller
             ->with('success',
              'Nivel eliminado!');
     }
+    
 }

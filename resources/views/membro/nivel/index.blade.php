@@ -1,4 +1,5 @@
 @extends('layouts.membro')
+
 @section('principal')
 
 <div class="">
