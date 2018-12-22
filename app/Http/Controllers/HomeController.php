@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AreaActuacao;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -19,6 +22,8 @@ class HomeController extends Controller
             'titulo' => 'Inicio',
             'areas' => AreaActuacao::take(3)->orderBy('created_at', 'desc')->get(),
         ];
+
+
         return view('paginas.index')->with($params);
     }
     public function contactos()

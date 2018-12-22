@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment" action="{{route('doacaonaoactivo.store')}}" method="post" >
+					<form class="leave-comment" action="{{route('doacaonaoactivo.store')}}" method="post" enctype="multipart/form-data">
 						
 						<h4 class="m-text26 p-b-36 p-t-15">
 							Preencher o formulario de doacao
@@ -48,8 +48,17 @@
                                
 						</div>
 						 @if ($errors->has('nome'))
-                                <span class="help-block">{{ $errors->first('nome') }}</span>
-                                @endif
+                            <span class="help-block">{{ $errors->first('nome') }}</span>
+                        @endif
+
+						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('telefone') ? ' has-error' : '' }} ">
+							<input value="" class="sizefull s-text7 p-l-22 p-r-22"  value="{{ Request::old('telefone') ?: '' }}" type="text" name="telefone" placeholder="Telefone">
+							
+                               
+						</div>
+						 @if ($errors->has('telefone'))
+                            <span class="help-block">{{ $errors->first('telefone') }}</span>
+                        @endif
 
 						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('talao') ? ' has-error' : '' }}">
 							<input class="sizefull s-text7 p-l-22 p-r-22" value="{{ Request::old('talao') ?: '' }}"  type="file" name="talao">

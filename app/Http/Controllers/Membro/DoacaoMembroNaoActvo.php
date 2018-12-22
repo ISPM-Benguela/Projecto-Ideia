@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\DoacaoNaoActivo;
 
 class DoacaoMembroNaoActvo extends Controller
 {
@@ -35,7 +36,41 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $talao = null;
+
+        $this->validate($request, [
+            'nome' => 'required',
+            'talao' => 'required',
+            'valor' => 'required',
+            'telefone' => 'required',
+        ]);
+
+        if ($request->hasFile('talao') && $request->file('talao')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('talao')->extension();
+
+            $talao = "{$nome}.{$extensao}";
+
+            $upload = $request->file('talao')->storeAs('Talao', $talao);
+
+            if(!$upload )
+            {
+                return redirect()
+                    ->route('apoiar')
+                    ->with('error','Falha ao fazer upload');
+            }
+        }
+
+        $doacao = DoacaoNaoActivo::create([
+            'nome' => $request->input('nome'),
+            'talao' => $talao,
+            'valor' => $request->input('valor'),
+            'telefone' => $request->input('telefone'),
+        ]);
+
+        return redirect()->route('apoiar');
     }
 
     /**
