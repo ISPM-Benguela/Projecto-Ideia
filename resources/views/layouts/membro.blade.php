@@ -70,7 +70,12 @@
                                         <li><a href="{{route('usuarios.index')}}">Membros</a></li>
                                         <li><a href="{{route('nivel.index')}}">Nivel</a></li>
                                         <li><a href="{{route('previlegio.index')}}">Previlégios</a></li>
-                                        <li><a href="">Doação</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-money"></i> Doacao <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{route('usuarios.index')}}">Doacao de Membro activo</a></li>
+                                        <li><a href="{{route('usuarios.index')}}">Doacao de Membro activo</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{{route('inicio')}}"><i class="fa fa-eye"></i> Visuaizar o Site </a></li>
