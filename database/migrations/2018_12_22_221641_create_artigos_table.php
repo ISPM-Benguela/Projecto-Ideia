@@ -15,7 +15,11 @@ class CreateArtigosTable extends Migration
     {
         Schema::create('artigos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
+            $table->string('imagem');
+            $table->text('conteudo');
             $table->timestamps();
+
         });
     }
 
