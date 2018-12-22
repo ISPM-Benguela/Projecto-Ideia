@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment" action="{{route('doacaonaoactivo.store')}}" method="post" enctype="multipart/form-data">
+					<form class="leave-comment" action="{{route('membronaoactivo.store')}}" method="post" enctype="multipart/form-data">
 						
 						<h4 class="m-text26 p-b-36 p-t-15">
 							Preencher o formulario de doacao

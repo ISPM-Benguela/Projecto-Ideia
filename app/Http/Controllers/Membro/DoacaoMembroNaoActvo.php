@@ -15,7 +15,11 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Doacao de membro nao activo',
+            'membros' => DoacaoNaoActivo::all(),
+        ];
+        return view('membro.naoactivo.index')->with($params);
     }
 
     /**
@@ -25,7 +29,6 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -92,7 +95,7 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -115,6 +118,14 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function destroy($id)
     {
-        //
+        $params = [
+            'titulo' => 'Eliminar Doacao',
+        ];
+
+        $doacao = DoacaoNaoActivo::fondOrFail($id);
+        $doacao->delete();
+
+        return redirect()->route('membronaoactivo.index', 'Doacao eliminado com sucesso!');
     }
+
 }

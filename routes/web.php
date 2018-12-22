@@ -44,7 +44,7 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('candidato', 'CandidaturaController');
 
-         Route::resource('doacaonaoactivo', 'DoacaoMembroNaoActvo');
+         Route::resource('membronaoactivo', 'DoacaoMembroNaoActvo');
 
         
         });

@@ -74,7 +74,7 @@
                                 </li>
                                 <li><a><i class="fa fa-money"></i> Doacao <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{route('doacaonaoactivo.index')}}">Doacao de Membro activo</a></li>
+                                        <li><a href="{{route('membronaoactivo.index')}}">Doacao de Membro activo</a></li>
                                         <li><a href="{{route('usuarios.index')}}">Doacao de Membro activo</a></li>
                                     </ul>
                                 </li>
