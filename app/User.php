@@ -31,9 +31,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function doacao()
+    public function doacoes()
     {
-        return $this->belongsTo(DoacaoMembroActivo::class);
+        return $this->hasMany(App\MembroActivo::class);
     }
 
 }

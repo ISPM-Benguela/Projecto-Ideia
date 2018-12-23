@@ -21,6 +21,8 @@ Route::get('apoiar', 'HomeController@apoiar')->name('apoiar');
 
 Route::get('contactos', 'HomeController@contactos')->name('contactos');
 
+Route::post('apoio', 'HomeController@store')->name('apoio');
+
 Route::get('blog', 'HomeController@blog')->name('blog');
 
 Auth::routes();
@@ -28,7 +30,7 @@ Auth::routes();
 Route::group(["middleware" => "auth"], function(){
     Route::group(['prefix' => 'membro','namespace' => 'Membro'], function(){
 
-         Route::resource('principal', 'HomeController');
+        Route::get('/', 'AreaactucaoController@principal')->name('principal');
 
          Route::resource('area', 'AreaactucaoController');
 

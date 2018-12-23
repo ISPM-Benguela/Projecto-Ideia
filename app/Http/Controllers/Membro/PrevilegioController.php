@@ -78,7 +78,9 @@ class PrevilegioController extends Controller
             }
         }
 
-        return "cadastrado";
+        return redirect()->route('previlegio.index')
+            ->with('success',
+             'previlegio cadastrado com sucesso');
     }
 
     /**

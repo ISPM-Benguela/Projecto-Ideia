@@ -9,6 +9,14 @@ use App\AreaActuacao;
 
 class AreaactucaoController extends Controller
 {
+
+    public function principal()
+    {
+        $params = [
+            'titulo' => 'Principal',
+        ];
+        return view('membro.home.index')->with($params);
+    }
     /**
      * Display a listing of the resource.
      *

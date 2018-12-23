@@ -109,7 +109,7 @@
 				</div>
 				@else 
 				<div class="header-icons">
-						<a href="{{route('principal.index')}}">{{ Auth::user()->name }}</a>
+						<a href="{{route('principal')}}">{{ Auth::user()->name }}</a>
 						<a class="dropdown-item" href="/logout" > Sair</a>
                                      
 						</div>

@@ -12,4 +12,9 @@ class MembroActivo extends Model
         'valor',
         
     ];
+
+    public function membro()
+    {
+        return $this->belongsTo(App\User::class);
+    }
 }
