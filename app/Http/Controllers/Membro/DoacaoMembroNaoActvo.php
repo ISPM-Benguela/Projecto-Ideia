@@ -39,6 +39,8 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function store(Request $request)
     {
+
+        return $request->input('telefone');
         $talao = null;
 
         $this->validate($request, [
