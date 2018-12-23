@@ -15,6 +15,9 @@ class CreateDoacaoMembroNaoActivosTable extends Migration
     {
         Schema::create('doacao_membro_nao_activos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('talao');
+            $table->string('telefone');
             $table->timestamps();
         });
     }
