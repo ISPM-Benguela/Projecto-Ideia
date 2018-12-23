@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DoacaoMembroActivo;
+use App\MembroActivo;
 
 class DoacaoMembroActivoController extends Controller
 {
@@ -17,7 +17,7 @@ class DoacaoMembroActivoController extends Controller
     {
         $params = [
             'titulo' => 'Cadastra doacao',
-            'doacaos' => DoacaoMembroActivo::all(), 
+            'doacaos' => MembroActivo::all(), 
         ];
         return view('membro.doacaoactivo.index')->with($params);
     }

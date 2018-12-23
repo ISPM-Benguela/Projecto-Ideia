@@ -9,6 +9,9 @@
 @section('principal')
 <div class="jumbotron img-responsive" >
     <h2>Seja bem-vindo a pagina restrita do membro!</h2>
+    @role('Admin')
+        Admin
+    @endrole
 </div>
 
 <h2 style="text-align: center; text-transform: uppercase;">O que temos para si.</h2>
