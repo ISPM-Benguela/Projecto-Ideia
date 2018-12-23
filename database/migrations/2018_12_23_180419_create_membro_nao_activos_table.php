@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDoacaoMembroNaoActivosTable extends Migration
+class CreateMembroNaoActivosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateDoacaoMembroNaoActivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('doacao_membro_nao_activos', function (Blueprint $table) {
+        Schema::create('membro_nao_activos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('talao');
-            $table->string('telefone');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateDoacaoMembroNaoActivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doacao_membro_nao_activos');
+        Schema::dropIfExists('membro_nao_activos');
     }
 }
