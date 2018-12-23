@@ -15,6 +15,10 @@ class CreateMembroNaoActivosTable extends Migration
     {
         Schema::create('membro_nao_activos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('talao');
+            $table->string('telefone');
+            $table->string('valor');
             $table->timestamps();
         });
     }
