@@ -33,6 +33,8 @@
                     </div> <!-- ./ col  -->
 
                    @endforeach
+                   @else
+                     <h2>Sem actividade</h2>
                     @endif
                     </div><!-- ./ row -->
                     
