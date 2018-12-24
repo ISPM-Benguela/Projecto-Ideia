@@ -54,6 +54,8 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('documentos', 'DocumentoController');
 
+         Route::resource('actividade', 'ActividadeController');
+
          Route::post('email','SugestaoController@email')->name('email');
 
         
