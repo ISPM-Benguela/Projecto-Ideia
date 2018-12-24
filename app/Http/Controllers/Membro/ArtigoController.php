@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use Session;
+use App\Artigo;
 
 
 class ArtigoController extends Controller
 {
     public function __construct() {
-        $this->middleware(['auth', 'clearance'])->except('index', 'show');
+        $this->middleware(['auth']);
     }
 
     /**
@@ -23,6 +24,7 @@ class ArtigoController extends Controller
     {
         $params = [
             'titulo' => 'Artigos',
+            'artigos' => Artigo::paginate(10),
         ];
         return view('membro.artigos.index')->with($params);
     }
@@ -34,7 +36,10 @@ class ArtigoController extends Controller
      */
     public function create()
     {
-        //
+        $params = [
+            'titulo' => 'Artigos',
+        ];
+        return  view('membro.artigos.create')->with($params);
     }
 
     /**
@@ -45,7 +50,43 @@ class ArtigoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $nomeFile = null;
+        $upload = null;
+
+        $this->validate($request, [
+            
+            'titulo' => 'required',
+            'imagem' => 'required',
+            'conteudo' => 'required',
+        ]);
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('imagem')->extension();
+
+            $nameFile = "{$nome}.{$extensao}";
+
+            $upload = $request->file('imagem')->storeAs('Artigos', $nameFile);
+
+            if(!$upload )
+            {
+                return redirect()
+                    ->route('artigo.create')
+                    ->with('error','Falha ao fazer upload');
+            }
+        }
+        $artigo = Artigo::create([
+            'titulo' => $request->input('titulo'),
+            'imagem' => $upload,
+            'conteudo' => $request->input('conteudo'),
+            
+            
+        ]);
+
+        return redirect()->route('artigo.index')->with('success',"Cadastrado com sucesso.");
     }
 
     /**
