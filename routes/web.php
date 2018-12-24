@@ -52,7 +52,7 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('sugestao', 'SugestaoController');
 
-         Route::resource('documentos', 'SugestaoController');
+         Route::resource('documentos', 'DocumentoController');
 
          Route::post('email','SugestaoController@email')->name('email');
 

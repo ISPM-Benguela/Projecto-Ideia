@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Documentos;
 
 class DocumentoController extends Controller
 {
@@ -14,7 +15,11 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        //
+        $params = [
+            'titulo' => 'Documentos',
+            'documentos' => Documentos::all(),
+        ];
+        return view('membro.documento.index')->with($params);
     }
 
     /**
