@@ -33,8 +33,8 @@
                                     <td>{{$row->titulo}}</td>
                                     <td>{{str_limit($row->descricao, 20)}}</td>
                                     <td>
-                                        <a href="{{ route('area.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
-                                        <a href="{{ route('area.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
+                                        <a href="{{ route('area.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> Editar</a>
+                                        <a href="{{ route('area.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Emilinar</a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -110,7 +110,11 @@
 				@else 
 				<div class="header-icons">
 						<a href="{{route('principal')}}">{{ Auth::user()->name }}</a>
-						<a class="dropdown-item" href="/logout" > Sair</a>
+						 <a style="margin-left: 12px;" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Sair
+                                        </a>
                                      
 						</div>
 					

@@ -50,6 +50,12 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('membroactivo', 'DoacaoMembroActivoController');
 
+         Route::resource('sugestao', 'SugestaoController');
+
+         Route::resource('documentos', 'SugestaoController');
+
+         Route::post('email','SugestaoController@email')->name('email');
+
         
         });
 });
