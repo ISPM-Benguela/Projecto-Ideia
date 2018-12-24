@@ -86,7 +86,7 @@ class DoacaoMembroActivoController extends Controller
             
         ]);
 
-        return redirect()->route('membroactivo.index')->with('success',"Area <strong>$area->membro()->name </strong> cadastrado.");
+        return redirect()->route('membroactivo.index')->with('success',"Cadastrado com sucesso.");
 
     }
 

@@ -24,7 +24,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>documento</th>
+                                <th>titulo</th>
                                 <th>Carregado por</th>
                                 <th>Data</th>
                                 <th></th>
@@ -34,19 +34,19 @@
                             @if (count($documentos))
                             @foreach($documentos as $row)
                             <tr>
-                                <td>{{$row->documento}}</td>
-                                <td>{{$row->catrregado}}</td>
+                                <td>{{$row->titulo}}</td>
+                                <td>{{$row->carregado}}</td>
                                 <td>{{ $row->created_at->format('F d, Y h:ia') }}</td>
                                 <td>
-                                    <a href="{{ route('usuarios.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
-                                    <a href="{{ route('usuarios.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
+                                    
+                                    <a href="{{ route('documentos.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
                                 </td>
                             </tr>
                             @endforeach
                             @endif
                         </tbody>
                     </table>
-                </div>
+                </div><div class="clearfix"></div>
             </div>
         </div>
     </div>

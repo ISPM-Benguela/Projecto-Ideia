@@ -29,7 +29,10 @@ class DocumentoController extends Controller
      */
     public function create()
     {
-        //
+        $params = [
+            'titulo' => 'Documentos',
+        ];
+        return view('membro.documento.create')->with($params);
     }
 
     /**
@@ -40,7 +43,39 @@ class DocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nomeFile = null;
+        $upload = null;
+
+        $this->validate($request, [
+            
+            'titulo' => 'required',
+            'documento' => 'required',
+        ]);
+
+        if ($request->hasFile('documento') && $request->file('documento')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('documento')->extension();
+
+            $nameFile = "{$nome}.{$extensao}";
+
+            $upload = $request->file('documento')->storeAs('Documentos', $nameFile);
+
+            if(!$upload )
+            {
+                return redirect()
+                    ->route('documentos.create')
+                    ->with('error','Falha ao fazer upload');
+            }
+        }
+        $docs  = Documentos::create([
+            'titulo' => $request->input('titulo'),
+            'documento' => $upload,
+            'carregado' => $request->input('membro'),
+        ]);
+
+        return redirect()->route('membroactivo.index')->with('success',"Area <strong>$docs->titulo </strong> cadastrado.");
     }
 
     /**
