@@ -130,3 +130,4 @@ class ActividadeController extends Controller
         //
     }
 }
+
