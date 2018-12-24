@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class MembroActivo extends Model
 {
@@ -15,6 +16,6 @@ class MembroActivo extends Model
 
     public function membro()
     {
-        return $this->belongsTo(App\User::class);
+        return $this->belongsTo(User::class);
     }
 }
