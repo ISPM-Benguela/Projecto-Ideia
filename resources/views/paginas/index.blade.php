@@ -118,11 +118,12 @@
 			<!-- Slide2 -->
 			<div class="wrap-slick2">
 				<div class="slick2">
+					@foreach($actividades as $actividade)
 					<div class="item-slick2 p-l-15 p-r-15">
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-								<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+								<img src="{{asset('storage')}}/{{ $actividade->imagem }}" height="200" alt="IMG-PRODUCT">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -141,15 +142,16 @@
 
 							<div class="block2-txt p-t-20">
 								<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-									Uma boa actividades
+									{{ $actividade->titulo }}
 								</a>
 
 								<span class="block2-price m-text6 p-r-5">
-									Local:  }}
+									Local: Lobito
 								</span>
 							</div>
 						</div>
-					</div>
+					</div><!-- /. aio -->
+					@endforeach
 				</div>
 			</div>
 

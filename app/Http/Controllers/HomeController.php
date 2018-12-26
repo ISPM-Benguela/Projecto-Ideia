@@ -8,6 +8,8 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\User;
 use App\MembroNaoActivo;
+use App\Actividade;
+use App\Artigo;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,7 @@ class HomeController extends Controller
         $params = [
             'titulo' => 'Inicio',
             'areas' => AreaActuacao::take(3)->orderBy('created_at', 'desc')->get(),
+            'actividades' => Actividade::all(),
         ];
 
 
@@ -93,7 +96,8 @@ class HomeController extends Controller
     public function blog()
     {
         $params = [
-            //'artigos' => Artigo::paginate(3),
+            'artigos' => Artigo::paginate(10),
+            'mais_vistos' => Artigo::orderBy('titulo','ASC')->get(),
             'titulo' => 'Blog',
         ];
 
