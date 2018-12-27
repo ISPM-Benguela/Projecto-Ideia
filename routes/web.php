@@ -56,6 +56,8 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('actividade', 'ActividadeController');
 
+         Route::resource('perfil', 'PerfilController');
+
          Route::post('email','SugestaoController@email')->name('email');
 
         
