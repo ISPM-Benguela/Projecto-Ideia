@@ -24,9 +24,9 @@
                         </a>
                         <div class="caption">
                             
-                            <h4>{{ $carouse->titulo }}</h4>
-                            <a href="{{ route('configuracao.slide_edit', ['id' => $carouse->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Actualizar</a>
-                            <a href="{{ route('configuracao.slide_edit', ['id' => $carouse->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                            <h4>{{ $carouse->descricao }}</h4>
+                            <a href="" class="btn btn-success btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Actualizar</a>
+                            <a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
                             
                         </div>
                     </div> <!-- ./ col  -->

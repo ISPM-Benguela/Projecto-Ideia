@@ -21,7 +21,7 @@
                             @csrf
 
                     
-                    <div class="form-group{{ $errors->has('titulo') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('descricao') ? ' has-error' : '' }}">
                         {{ Form::label('descricao', 'Descricao do slide') }}
                         <input type="text" value="{{ Request::old('descricao') ?: '' }}" name="descricao" class="form-control" />
                         @if ($errors->has('descricao'))

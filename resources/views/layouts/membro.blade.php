@@ -40,7 +40,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                            <a href="#" class="site_title"> <span>Area restrita!</span></a>
+                            <a href="#" class="site_title"> <span>Área restrita!</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -68,14 +68,12 @@
                                 <li><a><i class="fa fa-edit"></i> Painel de controle <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{route('usuarios.index')}}">Membros</a></li>
-                                        <li><a href="{{route('nivel.index')}}">Nivel</a></li>
-                                        <li><a href="{{route('previlegio.index')}}">Previlégios</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-money"></i> Doacao <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-money"></i> Doação <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="{{route('membronaoactivo.index')}}">Doacao de Membro Nao activo</a></li>
-                                        <li><a href="{{route('membroactivo.index')}}">Doacao de Membro activo</a></li>
+                                        <li><a href="{{route('membronaoactivo.index')}}">Doação de Membro Nao activo</a></li>
+                                        <li><a href="{{route('membroactivo.index')}}">Doação de Membro activo</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{{route('inicio')}}"><i class="fa fa-eye"></i> Visuaizar o Site </a></li>

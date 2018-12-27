@@ -64,6 +64,8 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::post('salva_slide', 'ConfiguracaoController@salva_slide')->name('salva_slide');
 
+         Route::get('slide_edit', 'ConfiguracaoController@slide_edit')->name('slide_edit');
+
          Route::post('email','SugestaoController@email')->name('email');
 
         
