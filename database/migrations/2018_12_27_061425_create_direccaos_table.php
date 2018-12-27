@@ -15,7 +15,11 @@ class CreateDireccaosTable extends Migration
     {
         Schema::create('direccaos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('titulo');
+            $table->string('imagem');
             $table->timestamps();
+
         });
     }
 
@@ -25,7 +29,7 @@ class CreateDireccaosTable extends Migration
      * @return void
      */
     public function down()
-    {
+    { 
         Schema::dropIfExists('direccaos');
     }
 }
