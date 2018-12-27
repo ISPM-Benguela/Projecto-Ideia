@@ -83,7 +83,7 @@
                                 <li><a href="{{route('documentos.index')}}"><i class="fa fa-file-text"></i> Documentos </a></li>
                                 <li><a href="{{route('area.index')}}"><i class="fa fa-calendar"></i> Area de actuacao </a></li>
                                 <li><a href="{{route('actividade.index')}}"><i class="fa fa-calendar"></i> Actividades </a></li>
-                                <li><a href="{{route('artigo.index')}}"><i class="fa fa-calendar"></i> Artigos </a></li>
+                                <li><a href="{{route('artigo.index')}}"><i class="fa fa-gears"></i> Configuracao </a></li>
                             </ul>
                         </div>
                     </div>

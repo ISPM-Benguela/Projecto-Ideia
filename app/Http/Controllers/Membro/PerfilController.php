@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Perfil;
+
 
 class PerfilController extends Controller
 {
@@ -57,7 +59,12 @@ class PerfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $params = [
+            'titulo' => 'Ver Perfil',
+            'perfil' => Perfil::find($id),
+        ];
+
+        return view('membro.perfil.cada')->with($params);
     }
 
     /**
