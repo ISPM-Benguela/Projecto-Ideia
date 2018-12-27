@@ -14,7 +14,7 @@ class AddImagemToPerfils extends Migration
     public function up()
     {
         Schema::table('perfils', function (Blueprint $table) {
-            $table->string('imagem')->after('tipo');
+            $table->string('imagem')->default('Perfil/default.jpg')->after('tipo');
         });
     }
 
