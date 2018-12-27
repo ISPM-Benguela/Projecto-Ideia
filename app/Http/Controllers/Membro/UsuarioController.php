@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Perfil;
 use Auth;
 
 //Enables us to output flash messaging
@@ -60,7 +61,11 @@ class UsuarioController extends Controller
         ]);
 
         $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
-
+        
+        $perfil = new Perfil;
+        $perfil->tipo = $request->input('tipo');
+        
+        $user->profile()->save($perfil);
              
     //Redirect to the users.index view and display message
         return redirect()->route('usuarios.index')
@@ -114,6 +119,11 @@ class UsuarioController extends Controller
         ]);
         $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
         $user->fill($input)->save();
+
+        $perfil = Perfil::find($id);
+        $perfil->tipo = $request->input('tipo');
+
+        $user->profile()->save($perfil);
 
         return redirect()->route('usuarios.index')
             ->with('success',

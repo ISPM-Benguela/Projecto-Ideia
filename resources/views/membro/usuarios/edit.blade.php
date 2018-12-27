@@ -28,14 +28,14 @@
                         {{ Form::email('email', null, array('class' => 'form-control')) }}
                     </div>
                 
-                    <h5><b>Atribuir nvel</b></h5>
-                
                     <div class='form-group'>
-                        @foreach ($roles as $role)
-                            {{ Form::checkbox('roles[]',  $role->id, $user->roles ) }}
-                            {{ Form::label($role->name, ucfirst($role->name)) }}<br>
-                
-                        @endforeach
+                        {{ Form::label('email', 'Peril do membro') }}
+                        <select name="tipo" class="form-control">
+                            <option value=""> ---- Selecionar --- </option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Secretario">Secretario</optsion>
+                            <option value="Membro">Membro</option>
+                        </select>
                     </div>
                 
                     <div class="form-group">
