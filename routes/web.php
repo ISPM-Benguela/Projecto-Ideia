@@ -58,6 +58,12 @@ Route::group(["middleware" => "auth"], function(){
 
          Route::resource('perfil', 'PerfilController');
 
+         Route::resource('configuracao', 'ConfiguracaoController');
+
+         Route::get('add_slide', 'ConfiguracaoController@add_slide')->name('add_slide');
+
+         Route::post('salva_slide', 'ConfiguracaoController@salva_slide')->name('salva_slide');
+
          Route::post('email','SugestaoController@email')->name('email');
 
         
