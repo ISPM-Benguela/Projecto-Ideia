@@ -39,7 +39,7 @@
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{ $row->created_at->format('F d, Y h:ia') }}</td>
-                                <td>{{  $row->roles()->pluck('name')->implode(' ') }}</td>
+                                <td>{{  $row->profile['tipo'] }}</td>
                                 <td>
                                     <a href="{{ route('usuarios.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> </a>
                                     <a href="{{ route('usuarios.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
