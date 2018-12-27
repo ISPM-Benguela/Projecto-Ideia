@@ -48,7 +48,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="{{asset('images/rezende.png')}}" alt="..." class="img-circle profile_img">
+                            <img src="{{asset('storage')}}/{{ Auth::user()->profile->imagem }}" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Seja bem-vindo,</span>
@@ -119,7 +119,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{asset('images/rezende.png')}}" alt="">{{ Auth::user()->name  }}
+                                    <img src="{{asset('storage')}}/{{ Auth::user()->profile->imagem }}" alt="">{{ Auth::user()->name  }}
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
