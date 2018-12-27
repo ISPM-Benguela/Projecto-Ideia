@@ -138,12 +138,16 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
+
+        return "destoi";
         //Find a user with a given id and delete
+
+        /*
         $user = User::findOrFail($id); 
         $user->delete();
 
         return redirect()->route('usuarios.index')
             ->with('success',
-             'Usuarios eliminido.');
+             'Usuarios eliminido.');*/
     }
 }
