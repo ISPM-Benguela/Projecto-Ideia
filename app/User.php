@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\DoacaoMembroActivo;
 use App\Perfil;
 
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {

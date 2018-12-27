@@ -8,10 +8,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 
-//Importing laravel-permission models
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-
 //Enables us to output flash messaging
 use Session;
 
@@ -44,7 +40,6 @@ class UsuarioController extends Controller
     {
         $params = [
             'titulo' => 'Cadastrar membro',
-            'roles' => Role::all(),
         ];
         return view('membro.usuarios.create')->with($params);
     }
@@ -66,15 +61,7 @@ class UsuarioController extends Controller
 
         $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
 
-        $roles = $request['roles']; //Retrieving the roles field
-    //Checking if a role was selected
-        if (isset($roles)) {
-
-            foreach ($roles as $role) {
-            $role_r = Role::where('id', '=', $role)->firstOrFail();            
-            $user->assignRole($role_r); //Assigning role to user
-            }
-        }        
+             
     //Redirect to the users.index view and display message
         return redirect()->route('usuarios.index')
             ->with('success',
@@ -103,7 +90,6 @@ class UsuarioController extends Controller
         $params = [
             'titulo' => 'Editar membro',
             'user' =>  User::findOrFail($id),
-            'roles' => Role::get(),
         ];
 
         return view('membro.usuarios.edit')->with($params); //pass user and roles data to view
@@ -127,15 +113,8 @@ class UsuarioController extends Controller
             'password'=>'required|min:6|confirmed'
         ]);
         $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
-        $roles = $request['roles']; //Retreive all roles
         $user->fill($input)->save();
 
-        if (isset($roles)) {        
-            $user->roles()->sync($roles);  //If one or more role is selected associate user to roles          
-        }        
-        else {
-            $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
-        }
         return redirect()->route('usuarios.index')
             ->with('success',
              'Dados do usuarios actulizado.');
