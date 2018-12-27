@@ -9,63 +9,30 @@
       <section class="slide1">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1 item1-slick1" style="background-image: url(images/1.jpg);">
+			  @if(count($carousel) > 0)
+			    @foreach($carousel as $slide)
+					<div class="item-slick1 item1-slick1" style="background-image: url('/storage/{{ $slide->imagem}}');">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-							Projecto Ideia
-						</span>
 
 						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-							Não há limites para quem quer fazer o bem
+							{{ $slide->descricao }}
 					
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="blog.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Saber Mais
 							</a>
 						</div>
 					</div>
 				</div>
-
-				<div class="item-slick1 item2-slick1" style="background-image: url(images/2.jpeg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-							Convivendo com eles
-						</span>
-
-						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-							Quem partoilha rem mais
-						</h2>
-
-						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-							<!-- Button -->
-							<a href="blog.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Saber Mais
-							</a>
-						</div>
-					</div>
+				@endforeach
+			  @else 
+				<div style="padding: 10px; height: 360px; border: 1px solid #ccc;">
+					<h2 style="margin-left: 250px; margin-top: 120px; color: red;">Precisas carregar os slide no back office</h2>
 				</div>
-
-				<div class="item-slick1 item3-slick1" style="background-image: url(images/3.jpeg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-							Dia Mundial da saude 2018
-						</span>
-
-						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-							A saude Importa
-						</h2>
-
-						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-							<!-- Button -->
-							<a href="blog.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Saber Mais
-							</a>
-						</div>
-					</div>
-				</div>
+			  @endif
 
 			</div>
 		</div>
@@ -118,6 +85,7 @@
 			<!-- Slide2 -->
 			<div class="wrap-slick2">
 				<div class="slick2">
+				 @if (count($actividades) > 0)
 					@foreach($actividades as $actividade)
 					<div class="item-slick2 p-l-15 p-r-15">
 						<!-- Block2 -->
@@ -152,6 +120,11 @@
 						</div>
 					</div><!-- /. aio -->
 					@endforeach
+					@else 
+                      <div style="padding: 10px; height: 360px; border: 1px solid #ccc;">
+					<h6 style="margin-left: 20px; margin-top: 120px; color: red;">Precisas carregar os activdades no back office</h6>
+				</div>
+					@endif
 				</div>
 			</div>
 

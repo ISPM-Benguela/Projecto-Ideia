@@ -10,6 +10,7 @@ use App\User;
 use App\MembroNaoActivo;
 use App\Actividade;
 use App\Artigo;
+use App\Carousel;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
             'titulo' => 'Inicio',
             'areas' => AreaActuacao::take(3)->orderBy('created_at', 'desc')->get(),
             'actividades' => Actividade::all(),
+            'carousel' => Carousel::all(),
         ];
 
 
