@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\DoacaoMembroActivo;
+use App\Perfil;
 
 use Spatie\Permission\Traits\HasRoles;
 
@@ -36,4 +37,8 @@ class User extends Authenticatable
         return $this->hasMany(App\MembroActivo::class);
     }
 
+    public function profile()
+    {
+        return $this->hasOne(Perfil::class);
+    }
 }
