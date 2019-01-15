@@ -93,7 +93,11 @@ class ActividadeController extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'titulo' => 'Eliminar actividade',
+            'actividade' => Actividade::find($id),
+        ];
+        return view('membro.actividade.delete')->with($params);
     }
 
     /**
@@ -166,7 +170,10 @@ class ActividadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actividade = Actividade::find($id);
+        $actividade->delete();
+
+        return redirect()->route('actividade.index')->with('success', 'Actividade eliminada com sucesso.');
     }
 }
 
