@@ -43,7 +43,7 @@
                                 
                                 <td>
                                     <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" title="Edit"></i> responder </a>
-                                    <a href="{{ route('usuarios.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    <a href="{{ route('sugestao.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
                                 </td>
                             </tr>
                             <!-- Modal -->

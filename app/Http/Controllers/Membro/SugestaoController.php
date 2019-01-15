@@ -51,7 +51,11 @@ class SugestaoController extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'titulo' => "Eliminar sugestao",
+            'sugestao' => Contacto::find($id),
+        ];
+        return view('membro.sugestao.delete')->with($params);
     }
 
     /**
@@ -85,7 +89,13 @@ class SugestaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sugestao =  Contacto::find($id);
+
+        $sugestao->delete();
+
+        return redirect()->route('sugestao.index')->with('success','Sugestão eliminado com sucesso.');
+
+
     }
     public function email(Request $request, $id)
     {
