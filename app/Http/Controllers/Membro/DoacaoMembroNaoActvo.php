@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\MembroNaoActivo;
 
 class DoacaoMembroNaoActvo extends Controller
@@ -95,7 +96,9 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function edit($id)
     {
-        
+        $doacao = MembroNaoActivo::find($id);
+
+        return Storage::download("Talao/". $doacao->talao);
     }
 
     /**
@@ -126,6 +129,10 @@ class DoacaoMembroNaoActvo extends Controller
         $doacao->delete();
 
         return redirect()->route('membronaoactivo.index', 'Doacao eliminado com sucesso!');
+    }
+    public function download($id)
+    {
+        return "download";
     }
 
 }

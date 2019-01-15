@@ -35,8 +35,9 @@
                                 <td>{{$row->valor }}</td>
                                 <td>{{$row->created_at }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" title="Edit"></i> </a>
-                                    <a href="{{ route('membroactivo.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
+                                    <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye" title="Edit"></i> Visualizar</a>
+                                    <a href="{{ route('membroactivo.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar </a>
+                                    <a href="{{ route('membroactivo.edit', ['id' => $row->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-download" title="Delete"></i> Baixar talão</a>
                                 </td>
                             </tr>
                             <!-- Modal -->

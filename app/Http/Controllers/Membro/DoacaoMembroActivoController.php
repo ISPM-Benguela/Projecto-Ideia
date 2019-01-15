@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Storage;
 use App\MembroActivo;
 
 class DoacaoMembroActivoController extends Controller
@@ -98,7 +99,12 @@ class DoacaoMembroActivoController extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'doacao' => MembroActivo::find($id),
+            'titulo' => 'Eliminar',
+        ];
+
+        return view('membro.doacaoactivo.delete')->with($params);
     }
 
     /**
@@ -109,7 +115,10 @@ class DoacaoMembroActivoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $doacao = MembroActivo::find($id);
+
+
+        return Storage::download($doacao->talao);
     }
 
     /**
@@ -132,6 +141,12 @@ class DoacaoMembroActivoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doacao = MembroActivo::find($id);
+
+        $doacao->delete();
+
+        return redirect()->route('membroactivo.index')->with('success', 'Doação eliminado com sucesso.');
     }
+
+   
 }

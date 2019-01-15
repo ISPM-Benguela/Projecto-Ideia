@@ -48,6 +48,7 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('candidato', 'CandidaturaController');
 
          Route::resource('membronaoactivo', 'DoacaoMembroNaoActvo');
+         
 
          Route::resource('membroactivo', 'DoacaoMembroActivoController');
 

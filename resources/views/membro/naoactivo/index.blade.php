@@ -17,7 +17,6 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Talao</th>
                                 <th>Valor</th>
                                 <th>Enviado em</th>
                                 <th></th>
@@ -26,7 +25,6 @@
                         <tfoot>
                             <tr>
                                 <th>Nome</th>
-                                <th>Talao</th>
                                 <th>Valor</th>
                                 <th>Enviado em</th>
                                 <th></th>
@@ -37,11 +35,11 @@
                             @foreach($membros as $row)
                             <tr>
                                 <td>{{$row->nome}}</td>
-                                <td>{{$row->talao}}</td>
                                <td>{{$row->valor}}</td>
                                 <td>{{ $row->created_at->format('F d, Y h:ia') }}</td>
                                 <td>
-                                    <a href="{{ route('membronaoactivo.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
+                                    <a href="{{ route('membronaoactivo.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    <a href="{{ route('membronaoactivo.edit', ['id' => $row->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-download" title="Delete"></i> Baixar tão</a>
                                 </td>
                             </tr>
                             @endforeach
