@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-  - {{ $titulo }} 
+  - {{ $titulo }}
 @stop
 
 @section('principal')
@@ -16,7 +16,7 @@
 
 						<h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
 							{{ $slide->descricao }}
-					
+
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				@endforeach
-			  @else 
+			  @else
 				<div style="padding: 10px; height: 360px; border: 1px solid #ccc;">
 					<h2 style="margin-left: 250px; margin-top: 120px; color: red;">Precisas carregar os slide no back office</h2>
 				</div>
@@ -42,12 +42,12 @@
 	<section class="banner bgwhite p-t-40 p-b-40">
 			<div class="container">
                 <h2 style="text-align: center">Em que estamos envolvidos</h2>
-                
-				<p style="text-align: justify">O Projecto Ideia, é uma associação filantrópica, 
+
+				<p style="text-align: justify">O Projecto Ideia, é uma associação filantrópica,
 					de âmbito nacional e interesse geral, sem fins lucrativos, constituída por
 					 pessoas, independentemente do género, raça, origem étnica, ou condição
 					 sócio-económica, que respeitem a Lei Cristã e as normas existente em
-					  cada território, com autonomia administrativa, financeira, jurídica 
+					  cada território, com autonomia administrativa, financeira, jurídica
 					  e patrimonial, podendo alargar sua acção aos vários campos que constituem
 					   a sociedade (igreja, escola, família...). .</p>
                 <br /><br /><br />
@@ -120,7 +120,7 @@
 						</div>
 					</div><!-- /. aio -->
 					@endforeach
-					@else 
+					@else
                       <div style="padding: 10px; height: 360px; border: 1px solid #ccc;">
 					<h6 style="margin-left: 20px; margin-top: 120px; color: red;">Precisas carregar os activdades no back office</h6>
 				</div>
@@ -150,11 +150,40 @@
 			</div>
 
 			<div class="row">
+			   @if(count($perfils) > 0)
+			   @foreach($perfils as $perfil)
+
+			   @if ( $perfil->tipo == 'Administrador')
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-01.jpg" alt="IMG-BLOG">
+							<img width="129" height="229" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
+						</a>
+
+						<div class="block3-txt p-t-14">
+							<h4 class="p-b-7">
+								<a href="blog-detail.html" class="m-text11">
+
+								</a>
+							</h4>
+
+							<span class="s-text6">Cargo: </span> <span class="s-text7">{{ $perfil->tipo }}</span>
+
+
+							<p class="s-text8 p-t-16">
+								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+							</p>
+						</div>
+					</div>
+				</div>
+				@endif
+				@if ( $perfil->tipo == 'Secretario')
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href=""  class="block3-img dis-block hov-img-zoom">
+							<img width="129" height="229" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
@@ -164,7 +193,7 @@
 								</a>
 							</h4>
 
-							<span class="s-text6">Cargo: </span> <span class="s-text7">Coordenador do projecto</span>
+							<span class="s-text6">Cargo: </span> <span class="s-text7">{{ $perfil->tipo }}</span>
 
 
 							<p class="s-text8 p-t-16">
@@ -173,52 +202,11 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-02.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									Angelino Valeta
-								</a>
-							</h4>
-
-							<span class="s-text6">Cargo: </span> <span class="s-text7">Vice - Coordenador do projecto</span>
-
-							<p class="s-text8 p-t-16">
-								Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
-					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-03.jpg" alt="IMG-BLOG">
-						</a>
-
-						<div class="block3-txt p-t-14">
-							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									Bernadeth Bueke
-								</a>
-							</h4>
-
-							<span class="s-text6">Cargo: </span> <span class="s-text7">Secretaria</span>
-
-							<p class="s-text8 p-t-16">
-								Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
-							</p>
-						</div>
-					</div>
-				</div>
+				@endif
+			  @endforeach
+			  @else
+				<h3>Cadastrar a direcção no backoffice</h3>
+			  @endif
 			</div>
 		</div>
 	</section>
