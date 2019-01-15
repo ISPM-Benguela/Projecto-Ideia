@@ -85,7 +85,12 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'doacao' => MembroNaoActivo::find($id),
+            'titulo' => "Eliminar doacao",
+        ];
+        return view('membro.naoactivo.delete')->with($params);
+
     }
 
     /**
@@ -125,7 +130,7 @@ class DoacaoMembroNaoActvo extends Controller
             'titulo' => 'Eliminar Doacao',
         ];
 
-        $doacao = DoacaoNaoActivo::fondOrFail($id);
+        $doacao = MembroNaoActivo::findOrFail($id);
         $doacao->delete();
 
         return redirect()->route('membronaoactivo.index', 'Doacao eliminado com sucesso!');
