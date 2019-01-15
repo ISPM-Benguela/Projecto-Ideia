@@ -175,7 +175,7 @@ class AreaactucaoController extends Controller
             }
 
             $area->titulo = $request->input('titulo');
-            $area->imagem = $nameFile;
+            $area->imagem = $upload;
             $area->descricao = $request->input('descricao');
 
             $area->save();

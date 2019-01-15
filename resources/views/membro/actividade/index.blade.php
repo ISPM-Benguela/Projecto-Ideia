@@ -18,16 +18,16 @@
                        
                    
                     <div class="col-xs-6 col-md-3">
-                     
-                        <a href="#" class="thumbnail">
+                       
+                        <a href="#" class="thumbnail" style="margin-top: 10px;">
                         <img src="{{asset('storage')}}/{{ $artigo->imagem }}" alt="...">
                         </a>
                         <div class="caption">
                             
                             <h4>{{ $artigo->titulo }}</h4>
                             <p>{{ $artigo->local }}</p>
-                            <a href="{{ route('artigo.edit', ['id' => $artigo->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Actualizar</a>
-                            <a href="{{ route('artigo.show', ['id' => $artigo->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                            <a href="{{ route('actividade.edit', ['id' => $artigo->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-pencil" title="Delete"></i> Actualizar</a>
+                            <a href="{{ route('actividade.show', ['id' => $artigo->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
                             
                         </div>
                     </div> <!-- ./ col  -->

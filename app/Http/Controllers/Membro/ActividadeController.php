@@ -104,7 +104,11 @@ class ActividadeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $params = [
+            'titulo' => 'Editar actividade',
+            'actividade' => Actividade::find($id),
+        ];
+        return view('membro.actividade.edit')->with($params);
     }
 
     /**
@@ -116,7 +120,42 @@ class ActividadeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'titulo' => 'required',
+            'imagem' => 'required',
+            'local' => 'required',
+            'data_inicio' => 'required',
+            'data_termino' => 'required',
+        ]);
+
+        $actividade = Actividade::findOrFail($id);
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('imagem')->extension();
+
+            $nameFile = "{$nome}.{$extensao}";
+
+            $upload = $request->file('imagem')->storeAs('Actividades', $nameFile);
+
+            if(!$upload )
+            {
+                return redirect()
+                    ->route('acitividade.create')
+                    ->with('error','Falha ao fazer upload');
+            }
+        }
+
+        $actividade->titulo = $request->input('titulo');
+        $actividade->imagem = $upload;
+        $actividade->local = $request->input('local');
+        $actividade->data_inicio = $request->input('data_inicio');
+        $actividade->data_termino = $request->input('data_termino');
+
+        $actividade->save();
+        return redirect()->route('actividade.index')->with('success',"Actividade actualizado com sucesso.");
     }
 
     /**

@@ -114,7 +114,7 @@
 								</a>
 
 								<span class="block2-price m-text6 p-r-5">
-									Local: Lobito
+									Local: {{ $actividade->local }}
 								</span>
 							</div>
 						</div>
