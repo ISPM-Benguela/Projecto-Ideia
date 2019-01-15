@@ -40,6 +40,7 @@
                                 <td>
                                     
                                     <a href="{{ route('documentos.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    <a href="{{ route('documentos.edit', ['id' => $row->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-download" title="Delete"></i> Baixar documento</a>
                                 </td>
                             </tr>
                             @endforeach

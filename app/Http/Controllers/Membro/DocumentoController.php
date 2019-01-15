@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Documentos;
 
 class DocumentoController extends Controller
@@ -75,7 +76,7 @@ class DocumentoController extends Controller
             'carregado' => $request->input('membro'),
         ]);
 
-        return redirect()->route('membroactivo.index')->with('success',"Area <strong>$docs->titulo </strong> cadastrado.");
+        return redirect()->route('documentos.index')->with('success',"Area <strong>$docs->titulo </strong> cadastrado.");
     }
 
     /**
@@ -86,7 +87,11 @@ class DocumentoController extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'titulo' => 'Eliminar documento',
+            'documento' => Documentos::find($id),
+        ];
+        return view('membro.documento.delete')->with($params);
     }
 
     /**
@@ -97,7 +102,10 @@ class DocumentoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $documento = Documentos::find($id);
+
+
+        return Storage::download($documento->documento);
     }
 
     /**
@@ -120,6 +128,10 @@ class DocumentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $documento = Documentos::find($id);
+
+        $documento->delete();
+
+        return redirect()->route('documentos.index')->with('success', 'Documento eliminado com sucesso.');
     }
 }
