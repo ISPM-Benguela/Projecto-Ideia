@@ -17,6 +17,9 @@ class CreateTablePerfils extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nome')->nullable();
+            $table->string('snome')->nullable();
+            $table->string('email')->nullable();
             $table->string('tipo')->defaut('membro');
             $table->string('imagem')->default('Perfil/default.jpg');
             $table->timestamps();
