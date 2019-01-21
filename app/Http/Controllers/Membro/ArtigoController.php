@@ -97,7 +97,11 @@ class ArtigoController extends Controller
      */
     public function show($id)
     {
-        //
+        $params = [
+            'titulo' => 'eliminando',
+            'artigo' => Artigo::find($id),
+        ];
+        return view('membro.artigos.delete')->with($params);
     }
 
     /**
@@ -108,7 +112,11 @@ class ArtigoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $params = [
+            'titulo' => 'Editar',
+            'artigo' => Artigo::find($id),
+        ];
+        return view('membro.artigos.edit')->with($params);
     }
 
     /**
@@ -120,7 +128,42 @@ class ArtigoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nomeFile = null;
+        $upload = null;
+
+        $this->validate($request, [
+            'titulo' => 'required',
+            'imagem' => 'required',
+            'conteudo' => 'required',
+        ]);
+
+        $artigo = Artigo::find($id);
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('imagem')->extension();
+
+            $nameFile = "{$nome}.{$extensao}";
+
+            $upload = $request->file('imagem')->storeAs('Artigos', $nameFile);
+
+            if(!$upload )
+            {
+                return redirect()
+                    ->route('artigo.create')
+                    ->with('error','Falha ao fazer upload');
+            }
+        }
+        $artigo->titulo = $request->input('titulo');
+        $artigo->imagem = $upload;
+        $artigo->conteudo = $request->input('conteudo');
+
+        $artigo->save();
+
+        return redirect()->route('artigo.index')->with('success', 'Artigo actualizado com sucesso.');
+
     }
 
     /**
