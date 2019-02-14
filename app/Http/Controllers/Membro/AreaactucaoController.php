@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\AreaActuacao;
 use App\Perfil;
+use Auth;
 
 class AreaactucaoController extends Controller
 {

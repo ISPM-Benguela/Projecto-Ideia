@@ -64,11 +64,11 @@
                         <div class="menu_section">
                             <h3>Painel de controle</h3>
                             @if($perfil->tipo == 'Administrador')
-                               Administrador
+                               @include('includes.admin')
                             @elseif ($perfil->tipo == 'Secretario')
-                                Secretario
+                                @include('includes.secret')
                             @elseif ($perfil->tipo == 'Membro')
-                                Membro
+                              @include('includes.membro')
                             @endif
                             
                         </div>
@@ -132,7 +132,7 @@
 
             <!-- page content -->
             <div class="right_col" role="main">
-                @include('templates.admin.partials.alerts')
+                @include('includes.erro')
                 @yield('principal')
             </div>
             <!-- /page content -->
