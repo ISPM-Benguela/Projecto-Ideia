@@ -12,6 +12,7 @@ use App\Actividade;
 use App\Artigo;
 use App\Carousel;
 use App\Perfil;
+use Auth;
 
 class HomeController extends Controller
 {

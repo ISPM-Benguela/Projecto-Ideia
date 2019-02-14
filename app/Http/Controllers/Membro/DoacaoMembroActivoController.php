@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Storage;
 use App\MembroActivo;
-use APp\Perfil;
+use App\Perfil;
+use Auth;
 
 class DoacaoMembroActivoController extends Controller
 {

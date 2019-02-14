@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\MembroNaoActivo;
 use App\Perfil;
+use Auth;
 
 class DoacaoMembroNaoActvo extends Controller
 {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actividade;
 use App\Perfil;
+use Auth;
 
 class ActividadeController extends Controller
 {
@@ -35,7 +36,7 @@ class ActividadeController extends Controller
         $id = Auth::user()->id;
         $params = [
             'titulo' => 'Cadastrar actividade',
-            'perfil' => Pefil::find($id),
+            'perfil' => Perfil::find($id),
         ];
         return view('membro.actividade.create')->with($params);
     }

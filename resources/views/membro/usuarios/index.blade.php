@@ -42,8 +42,7 @@
                                 <td>{{  $row->profile['tipo'] }}</td>
                                 <td>
                                     <a href="{{ route('usuarios.edit', ['id' => $row->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil" title="Edit"></i> actualizar</a>
-                                    <a href="/membro/usuarios/{{ $row->id }}/destroy" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
-                                </td>
+                                    <a href="{{ route('perfil.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> </a>
                             </tr>
                             @endforeach
                             @endif

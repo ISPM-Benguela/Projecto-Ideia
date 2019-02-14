@@ -29,7 +29,7 @@ class AreaactucaoController extends Controller
      */
     public function index()
     {
-        $$id = Auth::user()->id;
+        $id = Auth::user()->id;
 
         $params = [
             'titulo' => 'Area de actuacao',

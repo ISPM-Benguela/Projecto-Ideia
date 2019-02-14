@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Perfil;
 use App\Candidatura;
+use Auth;
 
 class CandidaturaController extends Controller
 {

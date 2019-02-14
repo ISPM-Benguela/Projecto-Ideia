@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Perfil;
 use App\Carousel;
+use Auth;
 
 class ConfiguracaoController extends Controller
 {

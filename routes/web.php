@@ -37,6 +37,7 @@ Route::group(["middleware" => "auth"], function(){
          Route::resource('artigo', 'ArtigoController');
 
          Route::resource('usuarios', 'UsuarioController');
+         
         /*
          Route::resource('nivel', 'NivelController');
 

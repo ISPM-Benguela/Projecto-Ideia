@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Documentos;
 use App\Perfil;
+use Auth;
 
 class DocumentoController extends Controller
 {

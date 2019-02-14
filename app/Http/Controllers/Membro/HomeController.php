@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use APp\Perfil;
+use Auth;
 
 class HomeController extends Controller
 {

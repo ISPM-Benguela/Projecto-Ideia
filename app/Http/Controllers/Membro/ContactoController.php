@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use App\Contacto;
 
 class ContactoController extends Controller

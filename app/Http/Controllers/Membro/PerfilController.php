@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Perfil;
-
+use Auth;
+use App\User;
 
 class PerfilController extends Controller
 {
@@ -48,7 +49,15 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+        $id = Auth::user()->id;
+
+        $params = [
+            'perfil' => Perfil::find($id),
+            'titulo' => 'Editar membro',
+            'usuario' =>  User::findOrFail($id),
+        ];
+
+        return view('membro.usuarios.delete')->with($params); //pass user and roles data to view
     }
 
     /**
