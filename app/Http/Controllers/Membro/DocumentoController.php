@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Documentos;
+use App\Perfil;
 
 class DocumentoController extends Controller
 {
@@ -16,7 +17,10 @@ class DocumentoController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Documentos',
             'documentos' => Documentos::all(),
         ];
@@ -30,7 +34,10 @@ class DocumentoController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Documentos',
         ];
         return view('membro.documento.create')->with($params);
@@ -87,7 +94,10 @@ class DocumentoController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Eliminar documento',
             'documento' => Documentos::find($id),
         ];

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\MembroNaoActivo;
+use App\Perfil;
 
 class DoacaoMembroNaoActvo extends Controller
 {
@@ -16,7 +17,10 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Doacao de membro nao activo',
             'membros' => MembroNaoActivo::all(),
         ];
@@ -85,7 +89,10 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'doacao' => MembroNaoActivo::find($id),
             'titulo' => "Eliminar doacao",
         ];
@@ -126,7 +133,10 @@ class DoacaoMembroNaoActvo extends Controller
      */
     public function destroy($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Eliminar Doacao',
         ];
 

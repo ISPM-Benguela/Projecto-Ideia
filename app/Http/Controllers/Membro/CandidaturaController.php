@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Perfil;
 use App\Candidatura;
 
 class CandidaturaController extends Controller

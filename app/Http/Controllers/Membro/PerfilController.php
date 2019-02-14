@@ -77,7 +77,38 @@ class PerfilController extends Controller
     public function update(Request $request, $id)
     {
         
+        $nameFile = null;
+        $upload = null;
 
+        $this->validate($request, [
+            'nome' => 'required',
+            'snome' => 'required',
+            'imagem' => 'required',
+        ]);
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+
+            $nome = uniqid(date('HisYmd'));
+
+            $extensao = $request->file('imagem')->extension();
+            
+
+            $nameFile = "{$nome}.{$extensao}";
+
+            $upload = $request->file('imagem')->storeAs('Perfil', $nameFile);
+
+            if(!$upload )
+            {
+                return redirect()->route('perfil.edit', ['id' => $perfil->id])->with('success', 'Perfil actializado com sucesso');
+            }
+        }
+
+        $perfil = Perfil::find($id);
+        $perfil->imagem = $upload;
+        $perfil->nome = $request->input('nome');
+        $perfil->snome = $request->input('snome');
+        $perfil->save();
+        return redirect()->route('perfil.edit', ['id' => $perfil->id])->with('success', 'Perfil actializado com sucesso');
     }
 
     /**

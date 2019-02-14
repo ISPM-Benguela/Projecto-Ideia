@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Session;
 use App\Artigo;
-
+use App\Perfil;
 
 class ArtigoController extends Controller
 {
@@ -22,8 +22,11 @@ class ArtigoController extends Controller
      */
     public function index()
     {
+        $id = AUth::user()->id;
+
         $params = [
             'titulo' => 'Artigos',
+            'perfil' => Perfil::find($id),
             'artigos' => Artigo::paginate(10),
         ];
         return view('membro.artigos.index')->with($params);
@@ -36,7 +39,10 @@ class ArtigoController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Artigos',
         ];
         return  view('membro.artigos.create')->with($params);
@@ -97,7 +103,10 @@ class ArtigoController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'eliminando',
             'artigo' => Artigo::find($id),
         ];
@@ -112,7 +121,10 @@ class ArtigoController extends Controller
      */
     public function edit($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Editar',
             'artigo' => Artigo::find($id),
         ];

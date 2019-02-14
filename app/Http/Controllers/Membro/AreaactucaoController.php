@@ -6,14 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\AreaActuacao;
+use App\Perfil;
 
 class AreaactucaoController extends Controller
 {
 
     public function principal()
     {
+        $id = Auth::user()->id;
+
         $params = [
             'titulo' => 'Principal',
+            'perfil' => Perfil::find($id),
         ];
         return view('membro.home.index')->with($params);
     }
@@ -24,8 +28,11 @@ class AreaactucaoController extends Controller
      */
     public function index()
     {
+        $$id = Auth::user()->id;
+
         $params = [
             'titulo' => 'Area de actuacao',
+            'perfil' => Perfil::find($id),
             'areas' => AreaActuacao::all(),
         ];
         return view('membro.area.index')->with($params);
@@ -39,8 +46,11 @@ class AreaactucaoController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
+
         $params = [
             'titulo' => 'Cadastrar area',
+            'perfil' => Perfil::find($id),
         ];
         return view('membro.area.create')->with($params);
     }
@@ -95,9 +105,11 @@ class AreaactucaoController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
         try{
 
             $params = [
+                'perfil' => PErfil::find($id),
                 'titulo' => 'Eliminar',
                 'area' => AreaActuacao::findOrFail($id),
             ];
@@ -121,10 +133,14 @@ class AreaactucaoController extends Controller
      */
     public function edit($id)
     {
+        $id = Auth::user()->id;
+
+
         try
         {
             $params = [
                 'titulo' => 'Editar ',
+                'perfil' => Perfil::find($id),
                 'area' => AreaActuacao::findOrFail($id),
             ];
 

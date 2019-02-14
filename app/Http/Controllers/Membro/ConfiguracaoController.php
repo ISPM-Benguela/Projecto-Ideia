@@ -4,21 +4,27 @@ namespace App\Http\Controllers\Membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Perfil;
 use App\Carousel;
 
 class ConfiguracaoController extends Controller
 {
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => PErfil::find($id),
             'titulo' => 'Configuracao',
             'carousel' => Carousel::all(),
         ];
         return view('membro.configuracao.index')->with($params);
     }
     public function add_slide(){
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Adicionar slide',
         ];
 

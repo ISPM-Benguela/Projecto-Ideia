@@ -25,7 +25,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Usuarios',
             'usuarios' => User::all(),
         ];
@@ -39,7 +42,10 @@ class UsuarioController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Cadastrar membro',
         ];
         return view('membro.usuarios.create')->with($params);
@@ -81,6 +87,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
+        
         return redirect('usuarios'); 
     }
 
@@ -92,7 +99,10 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Editar membro',
             'user' =>  User::findOrFail($id),
         ];

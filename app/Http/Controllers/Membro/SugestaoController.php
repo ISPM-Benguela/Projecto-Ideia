@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contacto;
+use APp\Perfil;
 
 class SugestaoController extends Controller
 {
@@ -15,7 +16,10 @@ class SugestaoController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Sugestao',
             'sugestao' => Contacto::all(),
         ];
@@ -51,7 +55,10 @@ class SugestaoController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => "Eliminar sugestao",
             'sugestao' => Contacto::find($id),
         ];

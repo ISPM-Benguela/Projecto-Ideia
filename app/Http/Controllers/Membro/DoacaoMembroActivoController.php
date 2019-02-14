@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Storage;
 use App\MembroActivo;
+use APp\Perfil;
 
 class DoacaoMembroActivoController extends Controller
 {
@@ -23,7 +24,10 @@ class DoacaoMembroActivoController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Cadastra doacao',
             'doacaos' => MembroActivo::all(), 
         ];
@@ -37,7 +41,10 @@ class DoacaoMembroActivoController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'titulo' => 'Cadastrar Doacao de membros activo',
         ];
         return view('membro.doacaoactivo.create')->with($params);
@@ -99,7 +106,10 @@ class DoacaoMembroActivoController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
+
         $params = [
+            'perfil' => Perfil::find($id),
             'doacao' => MembroActivo::find($id),
             'titulo' => 'Eliminar',
         ];

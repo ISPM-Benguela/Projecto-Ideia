@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Membro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actividade;
+use App\Perfil;
 
 class ActividadeController extends Controller
 {
@@ -15,8 +16,10 @@ class ActividadeController extends Controller
      */
     public function index()
     {
+        $id = Auth::user()->id;
         $params = [
             'titulo' => 'Actividades',
+            'perfil' => Perfil::find($id),
             'actividades' => Actividade::all(),
         ];
         return view('membro.actividade.index')->with($params);
@@ -29,8 +32,10 @@ class ActividadeController extends Controller
      */
     public function create()
     {
+        $id = Auth::user()->id;
         $params = [
             'titulo' => 'Cadastrar actividade',
+            'perfil' => Pefil::find($id),
         ];
         return view('membro.actividade.create')->with($params);
     }
@@ -93,8 +98,10 @@ class ActividadeController extends Controller
      */
     public function show($id)
     {
+        $id = Auth::user()->id;
         $params = [
             'titulo' => 'Eliminar actividade',
+            'perfil' => Perfil::find($id),
             'actividade' => Actividade::find($id),
         ];
         return view('membro.actividade.delete')->with($params);
@@ -108,9 +115,11 @@ class ActividadeController extends Controller
      */
     public function edit($id)
     {
+        $id = Auth::user()->id;
         $params = [
             'titulo' => 'Editar actividade',
             'actividade' => Actividade::find($id),
+            'perfil' => Perfil::find($id),
         ];
         return view('membro.actividade.edit')->with($params);
     }
