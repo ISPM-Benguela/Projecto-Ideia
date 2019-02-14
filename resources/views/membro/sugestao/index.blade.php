@@ -9,7 +9,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Brands <a href="{{route('sugestao.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Create New </a></h2>
+                    
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -43,7 +43,9 @@
                                 
                                 <td>
                                     <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil" title="Edit"></i> responder </a>
+                                    @if ($perfil->tipo == "Administrador")
                                     <a href="{{ route('sugestao.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    @endif
                                 </td>
                             </tr>
                             <!-- Modal -->

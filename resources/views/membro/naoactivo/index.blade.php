@@ -38,8 +38,11 @@
                                <td>{{$row->valor}}</td>
                                 <td>{{ $row->created_at->format('F d, Y h:ia') }}</td>
                                 <td>
+                                   @if ($perfil->tipo == "Administrador")
                                     <a href="{{ route('membronaoactivo.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    @endif
                                     <a href="{{ route('membronaoactivo.edit', ['id' => $row->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-download" title="Delete"></i> Baixar tão</a>
+                                 
                                 </td>
                             </tr>
                             @endforeach
