@@ -46,7 +46,7 @@
 
                     <div class="form-group{{ $errors->has('data_inicio') ? ' has-error' : '' }}">
                         {{ Form::label('inicio', 'Data inicio') }}
-                        <input type="text" value="{{ Request::old('data_inicio') ?: '' }}" name="data_inicio" class="form-control" />
+                        <input type="date" value="{{ Request::old('data_inicio') ?: '' }}" name="data_inicio" class="form-control" />
                         @if ($errors->has('data_inicio'))
                             <span class="help-block">{{ $errors->first('data_inicio') }}</span>
                         @endif
@@ -56,7 +56,7 @@
                 
                     <div class="form-group{{ $errors->has('data_termino') ? ' has-error' : '' }}">
                         {{ Form::label('inicio', 'Data termino') }}
-                        <input type="text" value="{{ Request::old('data_termino') ?: '' }}" name="data_termino" class="form-control" />
+                        <input type="date" value="{{ Request::old('data_termino') ?: '' }}" name="data_termino" class="form-control" />
                         @if ($errors->has('data_termino'))
                             <span class="help-block">{{ $errors->first('data_termino') }}</span>
                         @endif

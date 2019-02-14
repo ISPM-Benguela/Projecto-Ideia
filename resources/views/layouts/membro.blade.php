@@ -185,6 +185,8 @@
                 if ($("#datatable-buttons").length) {
                     $("#datatable-buttons").DataTable({
                         dom: "Bfrtip",
+                        @if ($perfil->tipo == 'Administrador')
+
                         buttons: [
                         {
                             extend: "copy",
@@ -210,7 +212,37 @@
                             className: "btn-sm",
                             text: "Imprimir",
                         },
-                        ],
+                        ], 
+                        
+                        @elseif ($perfil->tipo == "Secretario")
+
+                        buttons: [
+                        {
+                            extend: "copy",
+                            className: "btn-sm",
+                            text: "Copiar"
+                        },
+                        {
+                            extend: "csv",
+                            className: "btn-sm",
+                            text: "Csv",
+                        },
+                        {
+                            extend: "excel",
+                            className: "btn-sm",
+                            text: "Excel",
+                        },
+                        {
+                            extend: "pdfHtml5",
+                            className: "btn-sm"
+                        },
+                        {
+                            extend: "print",
+                            className: "btn-sm",
+                            text: "Imprimir",
+                        },
+                        ], 
+                        @endif
                         responsive: true
                     });
                 }

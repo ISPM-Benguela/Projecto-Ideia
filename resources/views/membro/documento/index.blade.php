@@ -9,7 +9,9 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2> <a href="{{route('documentos.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Carregar documento</a></h2>
+                    @if ($perfil->tipo == "Administrador")
+                        <h2> <a href="{{route('documentos.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Carregar documento</a></h2>
+                    @endif
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -38,8 +40,9 @@
                                 <td>{{$row->carregado}}</td>
                                 <td>{{ $row->created_at->format('F d, Y h:ia') }}</td>
                                 <td>
-                                    
+                                    @if ($perfil->tipo == "Administrador")
                                     <a href="{{ route('documentos.show', ['id' => $row->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" title="Delete"></i> Eliminar</a>
+                                    @endif
                                     <a href="{{ route('documentos.edit', ['id' => $row->id]) }}" class="btn btn-success btn-xs"><i class="fa fa-download" title="Delete"></i> Baixar documento</a>
                                 </td>
                             </tr>

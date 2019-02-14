@@ -13,6 +13,8 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+
+                    @if ($perfil->tipo == "Administrador")
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -63,7 +65,7 @@
                             @endif
                         </tbody>
                     </table>
-
+                    @endif
                     
                 </div>
             </div>
