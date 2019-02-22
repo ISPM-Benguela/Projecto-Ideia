@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $titulo or "Painel de controle"}}</title>
+    <title>Painel de controle</title>
 
     <link rel="shortcut icon" type="image/png" href="{{asset('admin/images/favicon.png')}}"/>
     <!-- Bootstrap -->
@@ -40,7 +40,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                            <a href="#" class="site_title"> <span>Área restrita!</span></a>
+                            <a href="{{route('principal')}}" class="site_title"> <span>Área restrita!</span></a>
                     </div>
 
                     <div class="clearfix"></div>

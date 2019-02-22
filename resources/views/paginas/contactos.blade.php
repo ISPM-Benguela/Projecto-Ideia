@@ -22,7 +22,7 @@
 				</div>
 
 				<div class="col-md-6 p-b-30">
-					<form class="leave-comment" action="{{route('contacto.store')}}" method="post" >
+					<form class="leave-comment" action="{{route('sugerir.store')}}" method="post" >
 						
 						<h4 class="m-text26 p-b-36 p-t-15">
 							Envia - nos uma mensagem

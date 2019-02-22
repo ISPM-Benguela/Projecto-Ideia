@@ -1,17 +1,15 @@
 @extends('layouts.app')
 
-- {{ $titulo }}
-
 @section('principal')
- 	<!-- Title Page -->
-     <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/mainbanner.png);">
+	<!-- Title Page -->
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/mainbanner.png);">
 		<h2 class="l-text2 t-center">
 			Sobre nós
 		</h2>
 	</section>
 
 	<!-- content page -->
-	<section class="bgwhite p-t-66 p-b-38">
+  	<section class="bgwhite p-t-66 p-b-38">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 p-b-30">

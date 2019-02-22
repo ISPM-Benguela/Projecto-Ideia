@@ -23,7 +23,17 @@ Route::get('contactos', 'HomeController@contactos')->name('contactos');
 
 Route::post('apoio', 'HomeController@store')->name('apoio');
 
+Route::post('membrasia', 'MembroDocumentos@store')->name('membrasia');
+
 Route::get('blog', 'HomeController@blog')->name('blog');
+Route::resource('blogs', 'ArtigoController');
+
+Route::resource('sugerir', 'SugestController');
+
+Route::get('logout', function(){
+    Auth::logout();
+    return redirect()->back();
+});
 
 Auth::routes();
 
@@ -45,6 +55,8 @@ Route::group(["middleware" => "auth"], function(){
          */
 
          Route::resource('contacto', 'ContactoController');
+
+         Route::resource('eliminar', 'HomeController');
 
          Route::resource('candidato', 'CandidaturaController');
 

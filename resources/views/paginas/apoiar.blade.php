@@ -41,7 +41,7 @@
 					<form class="leave-comment" action="{{route('apoio')}}" method="post" enctype="multipart/form-data">
 						
 						<h4 class="m-text26 p-b-36 p-t-15">
-							Preencher o formulario de doacao
+							Preencher o formulario de doação
 						</h4>
 
 						<div class="bo4 of-hidden size15 m-b-20 {{ $errors->has('nome') ? ' has-error' : '' }} ">

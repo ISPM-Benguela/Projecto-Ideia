@@ -20,8 +20,8 @@
                 </div>
                 <div class="x_content">
                     <p>Tens certeza que desejas eliminar esta sugestão</p>
-
-                    <form method="POST" action="{{ route('usuarios.destroy', ['id' => $usuario->id]) }}">
+                    <p>A eliminar {{ $user->name }} com id {{ $user->id }}</p>
+                    <form method="POST" action="{{ route('usuarios.destroy', ['id' => $user->id]) }}">
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-danger">Sim tenho certeza.<strong></strong></button>

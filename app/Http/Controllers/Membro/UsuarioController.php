@@ -99,10 +99,10 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $id = Auth::user()->id;
+        $id2 = Auth::user()->id;
 
         $params = [
-            'perfil' => Perfil::find($id),
+            'perfil' => Perfil::find($id2),
             'titulo' => 'Editar membro',
             'user' =>  User::findOrFail($id),
         ];
@@ -122,11 +122,7 @@ class UsuarioController extends Controller
         $user = User::findOrFail($id); //Get role specified by id
 
     //Validate name, email and password fields    
-        $this->validate($request, [
-            'name'=>'required|max:120',
-            'email'=>'required|email|unique:users,email,'.$id,
-            'password'=>'required|min:6|confirmed'
-        ]);
+        
         $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
         $user->fill($input)->save();
 
@@ -152,7 +148,7 @@ class UsuarioController extends Controller
         $user->delete();
 
         return redirect()->route('usuarios.index')
-            ->with('success',
+            ->with('warning',
              'Usuarios eliminido.');
     }
 }

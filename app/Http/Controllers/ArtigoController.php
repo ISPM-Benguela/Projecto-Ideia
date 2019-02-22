@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Membro;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Perfil;
-use App\Candidatura;
-use Auth;
 use App\User;
+use App\MembroNaoActivo;
+use App\Actividade;
+use App\Artigo;
+use App\Carousel;
+use App\Perfil;
+use Auth;
 
-class CandidaturaController extends Controller
+class ArtigoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +20,7 @@ class CandidaturaController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-
-        $params = [
-            'perfil' => Perfil::find($id),
-            'cadindatos' => Candidatura::all(),
-        ];
-        return view('membro.candidatos.index')->with($params);
+        //
     }
 
     /**
@@ -45,19 +41,7 @@ class CandidaturaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nome' => 'required',
-            'no_bi' => 'required|unique:candidaturas',
-            'mensagem' => 'required',
-        ]);
-
-        $candidato = Candidatura::create([
-            'nome' => $request->input('nome'),
-            'no_bi' => $request->input('no_bi'),
-            'mensagem' => $request->input('mensagem'),
-        ]);
-
-        return redirect()->route('sermembro');
+        //
     }
 
     /**
@@ -68,17 +52,13 @@ class CandidaturaController extends Controller
      */
     public function show($id)
     {
-
-        $user = User::find($id);
-        $id2 = Auth::user()->id;
-
-
         $params = [
-             'perfil' => Perfil::find($id2),
-            'user' => $user,
+            'titulo' => 'Blog',
+            'mais_vistos' => Artigo::orderBy('titulo','ASC')->get(),
+            'artigo' => Artigo::find($id),
         ];
 
-        return view('membro.usuarios.delete')->with($params);
+        return view('blog.artigo')->with($params);
     }
 
     /**

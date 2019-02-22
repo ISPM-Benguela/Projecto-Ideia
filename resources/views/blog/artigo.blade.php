@@ -7,9 +7,9 @@
 @section('principal')
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/mainbanner.png);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({{asset('images/mainbanner.png')}});">
 		<h2 class="l-text2 t-center">
-			Blog
+			{{ $artigo->titulo }}
 		</h2>
 	</section>
    	<!-- content page -->
@@ -18,7 +18,6 @@
 			<div class="row">
 				<div class="col-md-8 col-lg-9 p-b-75">
 					<div class="p-r-50 p-r-0-lg">
-					  @foreach($artigos as $artigo)
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
 							<a href="#" class="item-blog-img pos-relative dis-block hov-img-zoom">
@@ -44,17 +43,11 @@
 
 								</div>
 
-								<p class="p-b-12">
-									{{  str_limit($artigo->conteudo, 500) }}
+								<p class="p-b-12" style="text-align: justify;">
+									{{  $artigo->conteudo }}
 								</p>
-
-								<a href="{{route('blogs.show', ['id' => $artigo->id ])}} " class="s-text20">
-									mais
-									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
-								</a>
 							</div>
 						</div>
-						@endforeach
 					</div>
 
 					

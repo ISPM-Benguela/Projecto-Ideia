@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Candidatura;
 
 class MembroDocumentos extends Controller
 {
@@ -34,7 +35,23 @@ class MembroDocumentos extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $this->validate($request, [
+            
+            'nome' => 'required',
+            'telefone' => 'required',
+            'mensagem' => 'required',
+        ]);
+
+        $conn = Candidatura::create([
+            'nome' => $request->input('nome'),
+            'no_bi' => $request->input('telefone'),
+            'mensagem' => $request->input('mensagem'),
+            
+            
+        ]);
+
+        return redirect()->route('sermembro')->with('success',"candidatura enviada.");
     }
 
     /**

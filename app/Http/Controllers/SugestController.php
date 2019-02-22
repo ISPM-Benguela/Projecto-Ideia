@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Membro;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Perfil;
-use App\Candidatura;
-use Auth;
-use App\User;
+use App\Contacto;
 
-class CandidaturaController extends Controller
+
+class SugestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +15,7 @@ class CandidaturaController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-
-        $params = [
-            'perfil' => Perfil::find($id),
-            'cadindatos' => Candidatura::all(),
-        ];
-        return view('membro.candidatos.index')->with($params);
+        //
     }
 
     /**
@@ -46,18 +37,23 @@ class CandidaturaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            
             'nome' => 'required',
-            'no_bi' => 'required|unique:candidaturas',
+            'telefone' => 'required',
+            'email' => 'required',
             'mensagem' => 'required',
         ]);
 
-        $candidato = Candidatura::create([
+        $conn = Contacto::create([
             'nome' => $request->input('nome'),
-            'no_bi' => $request->input('no_bi'),
+            'telefone' => $request->input('telefone'),
+            'email' => $request->input('email'),
             'mensagem' => $request->input('mensagem'),
+            
+            
         ]);
 
-        return redirect()->route('sermembro');
+        return redirect()->route('contactos')->with('success',"Sugestão enviada.");
     }
 
     /**
@@ -68,17 +64,7 @@ class CandidaturaController extends Controller
      */
     public function show($id)
     {
-
-        $user = User::find($id);
-        $id2 = Auth::user()->id;
-
-
-        $params = [
-             'perfil' => Perfil::find($id2),
-            'user' => $user,
-        ];
-
-        return view('membro.usuarios.delete')->with($params);
+        //
     }
 
     /**

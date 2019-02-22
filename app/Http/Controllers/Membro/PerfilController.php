@@ -89,11 +89,6 @@ class PerfilController extends Controller
         $nameFile = null;
         $upload = null;
 
-        $this->validate($request, [
-            'nome' => 'required',
-            'snome' => 'required',
-            'imagem' => 'required',
-        ]);
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()){
 

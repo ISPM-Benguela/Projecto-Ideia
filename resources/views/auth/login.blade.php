@@ -79,11 +79,6 @@
                             <div class="form-group col-md-12">
                                 <button type="submit" class="btn btn-primary btn-block">Iniciar Sess&atilde;o</button>
                             </div>
-                            <div class="form-group col-md-12">
-                                <div class="col-md-12">
-                                    <a href="{{ route('register')}}" class="btn btn-link btn-block">Criar&aacute; uma conta</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>

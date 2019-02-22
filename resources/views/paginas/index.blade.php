@@ -21,7 +21,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="{{route('sobre')}}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Saber Mais
 							</a>
 						</div>
@@ -73,12 +73,12 @@
 			</div>
 		</section>
 
-    <!-- Ultimos Eventos -->
+    <!-- Últimos Eventos -->
 	<section class="newproduct bgwhite p-t-45 p-b-105">
 		<div class="container">
 			<div class="sec-title p-b-60">
 				<h3 class="m-text5 t-center">
-					Ultimos Eventos
+					Últimos Eventos
 				</h3>
 			</div>
 
@@ -90,14 +90,11 @@
 					<div class="item-slick2 p-l-15 p-r-15">
 						<!-- Block2 -->
 						<div class="block2">
-							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative">
 								<img src="{{asset('storage')}}/{{ $actividade->imagem }}" height="200" alt="IMG-PRODUCT">
 
 								<div class="block2-overlay trans-0-4">
-									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-									</a>
+									
 
 									<div class="block2-btn-addcart w-size1 trans-0-4">
 										<!-- Button -->
@@ -114,8 +111,11 @@
 								</a>
 
 								<span class="block2-price m-text6 p-r-5">
-									Local: {{ $actividade->local }}
+									Local: {{ $actividade->local }} de  à {{ $actividade->data_termino }}
 								</span>
+								<p>Publicado à {{ $actividade->created_at->diffForHumans() }}</p>
+								<p>De {{ $actividade->data_inicio }} à {{ $actividade->data_termino }}</p>
+								
 							</div>
 						</div>
 					</div><!-- /. aio -->
@@ -133,19 +133,19 @@
 
   <!-- Banner2 -->
 	<section class="banner2 bg5 p-t-55 p-b-55" style="background-image: url(images/banner2.jpeg); background-size: 100% 100%; height: 300px; color: #fff;">
-		<h3>Nos somos uma ONG o nosso trabalha objectiva ajudar as crias e os idosos</h3>
+		<h3 style="text-transform: uppercase; color: #fff;">Nos somos uma ONG o nosso trabalha objectiva ajudar as crias e os idosos</h3>
 
     <!-- Button -->
-						<button class="butao-banner flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Venha fazer parte
-						</button>
+	<a href="{{route('sermembro')}}" class="butao-banner flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+		Venha fazer parte
+	</a>
 	</section>
   <!-- Blog -->
 	<section class="blog bgwhite p-t-94 p-b-65">
 		<div class="container">
 			<div class="sec-title p-b-52">
 				<h3 class="m-text5 t-center">
-					Nossa Derecao
+					Nossa Direção
 				</h3>
 			</div>
 
@@ -157,22 +157,22 @@
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img width="129" height="229" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
+						<a href="#" class="block3-img dis-block hov-img-zoom">
+							<img width="129" height="229" style="border-radius: 10px;" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
 							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-
+								<a href="#" class="m-text11">
+									{{ $perfil->nome }} {{ $perfil->snome }}
 								</a>
 							</h4>
-
+                            
 							<span class="s-text6">Cargo: </span> <span class="s-text7">{{ $perfil->tipo }}</span>
 
 
 							<p class="s-text8 p-t-16">
-								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+								Olá meu nome é {{ $perfil->nome }} {{ $perfil->snome }}, sou a administrador do projecto Ideia nova.
 							</p>
 						</div>
 					</div>
@@ -183,21 +183,21 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href=""  class="block3-img dis-block hov-img-zoom">
-							<img width="129" height="229" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
+							<img width="129" style="border-radius: 10px;"   height="229" src="{{asset('storage')}}/{{ $perfil->imagem }}" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
 							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
-									Humberto Fortes
+								<a href="#" class="m-text11">
+									{{ $perfil->nome }} {{ $perfil->snome }} 
 								</a>
 							</h4>
-
+                         
 							<span class="s-text6">Cargo: </span> <span class="s-text7">{{ $perfil->tipo }}</span>
 
 
 							<p class="s-text8 p-t-16">
-								Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+								Olá meu nome é {{ $perfil->nome }} {{ $perfil->snome }}, sou a Secretarios do projecto Ideia nova.
 							</p>
 						</div>
 					</div>

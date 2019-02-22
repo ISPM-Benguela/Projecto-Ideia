@@ -84,7 +84,7 @@ class DocumentoController extends Controller
             'carregado' => $request->input('membro'),
         ]);
 
-        return redirect()->route('documentos.index')->with('success',"Area <strong>$docs->titulo </strong> cadastrado.");
+        return redirect()->route('documentos.index')->with('success',"<strong>$docs->titulo </strong> carregado com sucesso.");
     }
 
     /**

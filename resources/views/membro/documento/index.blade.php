@@ -11,6 +11,8 @@
                 <div class="x_title">
                     @if ($perfil->tipo == "Administrador")
                         <h2> <a href="{{route('documentos.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Carregar documento</a></h2>
+                    @elseif ($perfil->tipo == "Secretario")
+                        <h2> <a href="{{route('documentos.create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Carregar documento</a></h2>
                     @endif
                     <div class="clearfix"></div>
                 </div>

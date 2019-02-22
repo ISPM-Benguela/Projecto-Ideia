@@ -96,7 +96,7 @@ class HomeController extends Controller
             'telefone' => $request->input('telefone'),
         ]);
 
-        return redirect()->route('apoiar')->with('success',"Cadastrado {$doacao->nome } doacao com sucesso.");
+        return redirect()->route('apoiar')->with('success'," {$doacao->nome } a tua doação foi submetida com sucesso.");
     }
     public function blog()
     {

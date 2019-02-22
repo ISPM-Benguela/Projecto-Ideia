@@ -50,7 +50,7 @@
                 
                     </div>
                 
-                    {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
+                    {{ Form::submit('Actualizar', array('class' => 'btn btn-primary')) }}
                 
                     {{ Form::close() }}
                 </div>

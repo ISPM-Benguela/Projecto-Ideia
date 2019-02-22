@@ -92,7 +92,7 @@ class ArtigoController extends Controller
             
         ]);
 
-        return redirect()->route('artigo.index')->with('success',"Cadastrado com sucesso.");
+        return redirect()->route('artigo.index')->with('success',"Artigo publicado com sucesso.");
     }
 
     /**
@@ -103,10 +103,10 @@ class ArtigoController extends Controller
      */
     public function show($id)
     {
-        $id = Auth::user()->id;
+        $id2 = Auth::user()->id;
 
         $params = [
-            'perfil' => Perfil::find($id),
+            'perfil' => Perfil::find($id2),
             'titulo' => 'eliminando',
             'artigo' => Artigo::find($id),
         ];
@@ -121,10 +121,10 @@ class ArtigoController extends Controller
      */
     public function edit($id)
     {
-        $id = Auth::user()->id;
+        $id2 = Auth::user()->id;
 
         $params = [
-            'perfil' => Perfil::find($id),
+            'perfil' => Perfil::find($id2),
             'titulo' => 'Editar',
             'artigo' => Artigo::find($id),
         ];
@@ -186,6 +186,9 @@ class ArtigoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artigo = Artigo::find($id);
+        $artigo->delete();
+
+        return redirect()->route('artigo.index')->with('warning', 'Artigo eliminado com sucesso.');
     }
 }

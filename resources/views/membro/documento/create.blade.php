@@ -8,7 +8,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                        <h1><i class="fa fa-file"></i> Cadastrar doação</h1>
+                        <h1><i class="fa fa-file"></i> Carregar Documento</h1>
                             <hr>
                     <h2>Lista de documentos <a href="{{route('documentos.index')}}" class="btn btn-info btn-xs"><i class="fa fa-chevron-left"></i> Voltar </a></h2>
                     <div class="clearfix"></div>
